@@ -103,13 +103,14 @@ public boolean maximizado = false;
         rSMaterialButtonRectangle25 = new rojerusan.RSMaterialButtonRectangle();
         jLabel20 = new javax.swing.JLabel();
         rSMaterialButtonRectangle27 = new rojerusan.RSMaterialButtonRectangle();
-        jTextField7 = new javax.swing.JTextField();
+        nombrepresentacion = new javax.swing.JTextField();
         rSMaterialButtonRectangle28 = new rojerusan.RSMaterialButtonRectangle();
         jLabel7 = new javax.swing.JLabel();
         rSMaterialButtonRectangle29 = new rojerusan.RSMaterialButtonRectangle();
+        prespresentacion = new javax.swing.JTextArea();
         rSMaterialButtonRectangle30 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle26 = new rojerusan.RSMaterialButtonRectangle();
-        rSMaterialButtonRectangle2 = new rojerusan.RSMaterialButtonRectangle();
+        btnsustancias = new rojerusan.RSMaterialButtonRectangle();
         psustancias = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         rSMaterialButtonRectangle31 = new rojerusan.RSMaterialButtonRectangle();
@@ -168,12 +169,13 @@ public boolean maximizado = false;
         rSMaterialButtonRectangle3 = new rojerusan.RSMaterialButtonRectangle();
         jLabel6 = new javax.swing.JLabel();
         rSMaterialButtonRectangle4 = new rojerusan.RSMaterialButtonRectangle();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        loteactual = new javax.swing.JTextField();
+        nombreproducto = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         rSMaterialButtonRectangle1 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle8 = new rojerusan.RSMaterialButtonRectangle();
-        rSMaterialButtonRectangle9 = new rojerusan.RSMaterialButtonRectangle();
+        btnpresentacion = new rojerusan.RSMaterialButtonRectangle();
+        descripcionproducto = new javax.swing.JTextArea();
         rSMaterialButtonRectangle21 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle22 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle23 = new rojerusan.RSMaterialButtonRectangle();
@@ -192,6 +194,7 @@ public boolean maximizado = false;
         jLabel31 = new javax.swing.JLabel();
         rSMaterialButtonRectangle48 = new rojerusan.RSMaterialButtonRectangle();
         jLabel32 = new javax.swing.JLabel();
+        txtareadesproducto = new javax.swing.JTextArea();
         rSMaterialButtonRectangle49 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle50 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle51 = new rojerusan.RSMaterialButtonRectangle();
@@ -395,8 +398,9 @@ public boolean maximizado = false;
         rSMaterialButtonRectangle27.setBackground(new java.awt.Color(255, 255, 255));
         ppresentacion.add(rSMaterialButtonRectangle27, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 130, 60));
 
-        jTextField7.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
-        ppresentacion.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 380, 40));
+        nombrepresentacion.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
+        nombrepresentacion.setName("nombrepresentacion"); // NOI18N
+        ppresentacion.add(nombrepresentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 380, 40));
 
         rSMaterialButtonRectangle28.setBackground(new java.awt.Color(33, 40, 105));
         ppresentacion.add(rSMaterialButtonRectangle28, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 420, 60));
@@ -409,19 +413,23 @@ public boolean maximizado = false;
         rSMaterialButtonRectangle29.setBackground(new java.awt.Color(255, 255, 255));
         ppresentacion.add(rSMaterialButtonRectangle29, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 160, 60));
 
+        prespresentacion.setColumns(20);
+        prespresentacion.setRows(5);
+        ppresentacion.add(prespresentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 380, 140));
+
         rSMaterialButtonRectangle30.setBackground(new java.awt.Color(33, 40, 105));
         ppresentacion.add(rSMaterialButtonRectangle30, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 420, 160));
 
         rSMaterialButtonRectangle26.setBackground(new java.awt.Color(231, 243, 249));
         ppresentacion.add(rSMaterialButtonRectangle26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 490, 560));
 
-        rSMaterialButtonRectangle2.setText("Sustancias");
-        rSMaterialButtonRectangle2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnsustancias.setText("Sustancias");
+        btnsustancias.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rSMaterialButtonRectangle2MouseClicked(evt);
+                btnsustanciasMouseClicked(evt);
             }
         });
-        ppresentacion.add(rSMaterialButtonRectangle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 710, -1, -1));
+        ppresentacion.add(btnsustancias, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 710, -1, -1));
 
         rSPanelsSlider2.add(ppresentacion, "card3");
 
@@ -638,11 +646,11 @@ public boolean maximizado = false;
         rSMaterialButtonRectangle4.setBackground(new java.awt.Color(255, 255, 255));
         pproducto.add(rSMaterialButtonRectangle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 160, 60));
 
-        jTextField2.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
-        pproducto.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, 380, 40));
+        loteactual.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
+        pproducto.add(loteactual, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, 380, 40));
 
-        jTextField1.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
-        pproducto.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 250, 380, 40));
+        nombreproducto.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
+        pproducto.add(nombreproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 250, 380, 40));
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel5.setText("Lote actual:");
@@ -655,14 +663,18 @@ public boolean maximizado = false;
         rSMaterialButtonRectangle8.setEnabled(false);
         pproducto.add(rSMaterialButtonRectangle8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 486, 105));
 
-        rSMaterialButtonRectangle9.setBackground(new java.awt.Color(34, 84, 166));
-        rSMaterialButtonRectangle9.setText("Presentacion");
-        rSMaterialButtonRectangle9.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnpresentacion.setBackground(new java.awt.Color(34, 84, 166));
+        btnpresentacion.setText("Presentacion");
+        btnpresentacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rSMaterialButtonRectangle9MouseClicked(evt);
+                btnpresentacionMouseClicked(evt);
             }
         });
-        pproducto.add(rSMaterialButtonRectangle9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 720, -1, -1));
+        pproducto.add(btnpresentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 720, -1, -1));
+
+        descripcionproducto.setColumns(20);
+        descripcionproducto.setRows(5);
+        pproducto.add(descripcionproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 380, 110));
 
         rSMaterialButtonRectangle21.setBackground(new java.awt.Color(33, 40, 105));
         pproducto.add(rSMaterialButtonRectangle21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 420, 130));
@@ -731,6 +743,10 @@ public boolean maximizado = false;
         jLabel32.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel32.setText(" Descripción:");
         pinfoprod1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 150, -1));
+
+        txtareadesproducto.setColumns(20);
+        txtareadesproducto.setRows(5);
+        pinfoprod1.add(txtareadesproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 390, 110));
 
         rSMaterialButtonRectangle49.setBackground(new java.awt.Color(183, 221, 237));
         pinfoprod1.add(rSMaterialButtonRectangle49, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 430, 130));
@@ -981,16 +997,16 @@ public boolean maximizado = false;
         jButton2.setEnabled(false);
     }//GEN-LAST:event_jButton4MouseClicked
 
-    private void rSMaterialButtonRectangle9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle9MouseClicked
+    private void btnpresentacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpresentacionMouseClicked
         //ingresar producto
         rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
         rSPanelsSlider2.setPanelSlider((int) 1.2, ppresentacion, RSPanelsSlider.DIRECT.LEFT);
-    }//GEN-LAST:event_rSMaterialButtonRectangle9MouseClicked
+    }//GEN-LAST:event_btnpresentacionMouseClicked
 
-    private void rSMaterialButtonRectangle2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle2MouseClicked
+    private void btnsustanciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsustanciasMouseClicked
         rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
         rSPanelsSlider2.setPanelSlider((int) 1.2, psustancias, RSPanelsSlider.DIRECT.LEFT);
-    }//GEN-LAST:event_rSMaterialButtonRectangle2MouseClicked
+    }//GEN-LAST:event_btnsustanciasMouseClicked
 
     private void rSMaterialButtonRectangle42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle42MouseClicked
         rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
@@ -1047,8 +1063,11 @@ public boolean maximizado = false;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojerusan.RSMaterialButtonRectangle btnpresentacion;
+    private rojerusan.RSMaterialButtonRectangle btnsustancias;
     private javax.swing.JComboBox<String> cmbbusquedas;
     private javax.swing.JComboBox<String> cmbprod;
+    private javax.swing.JTextArea descripcionproducto;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -1093,17 +1112,17 @@ public boolean maximizado = false;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField loteactual;
+    private javax.swing.JTextField nombrepresentacion;
+    private javax.swing.JTextField nombreproducto;
     private javax.swing.JPanel pLote;
     private javax.swing.JPanel pbuscar;
     private javax.swing.JPanel pbuscart;
@@ -1114,6 +1133,7 @@ public boolean maximizado = false;
     private javax.swing.JPanel pproducto;
     private javax.swing.JPanel pproductos;
     private javax.swing.JPanel pprodylot;
+    private javax.swing.JTextArea prespresentacion;
     private javax.swing.JPanel psustancias;
     private javax.swing.JPanel ptabla;
     private javax.swing.JPanel pvaciors2;
@@ -1129,7 +1149,6 @@ public boolean maximizado = false;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle17;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle18;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle19;
-    private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle2;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle20;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle21;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle22;
@@ -1169,12 +1188,12 @@ public boolean maximizado = false;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle6;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle7;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle8;
-    private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle9;
     private rojerusan.RSPanelsSlider rSPanelsSlider1;
     private rojerusan.RSPanelsSlider rSPanelsSlider2;
     private rojerusan.RSPanelsSlider rSPanelsSlider3;
     private javax.swing.JScrollPane scrollgai1;
     private rojerusan.RSTableMetro tableInventario;
+    private javax.swing.JTextArea txtareadesproducto;
     private javax.swing.JTextField txtbnprod;
     // End of variables declaration//GEN-END:variables
 }
