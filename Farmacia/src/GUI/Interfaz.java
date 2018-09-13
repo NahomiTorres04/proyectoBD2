@@ -99,18 +99,19 @@ public boolean maximizado = false;
         pvaciors2 = new javax.swing.JPanel();
         rSMaterialButtonRectangle24 = new rojerusan.RSMaterialButtonRectangle();
         ppresentacion = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
         jLabel19 = new javax.swing.JLabel();
         rSMaterialButtonRectangle25 = new rojerusan.RSMaterialButtonRectangle();
         jLabel20 = new javax.swing.JLabel();
         rSMaterialButtonRectangle27 = new rojerusan.RSMaterialButtonRectangle();
-        nombrepresentacion = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
         rSMaterialButtonRectangle28 = new rojerusan.RSMaterialButtonRectangle();
         jLabel7 = new javax.swing.JLabel();
         rSMaterialButtonRectangle29 = new rojerusan.RSMaterialButtonRectangle();
-        prespresentacion = new javax.swing.JTextArea();
         rSMaterialButtonRectangle30 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle26 = new rojerusan.RSMaterialButtonRectangle();
-        btnsustancias = new rojerusan.RSMaterialButtonRectangle();
+        rSMaterialButtonRectangle2 = new rojerusan.RSMaterialButtonRectangle();
         psustancias = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         rSMaterialButtonRectangle31 = new rojerusan.RSMaterialButtonRectangle();
@@ -164,23 +165,26 @@ public boolean maximizado = false;
         jPanel8 = new javax.swing.JPanel();
         rSPanelsSlider3 = new rojerusan.RSPanelsSlider();
         pproducto = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
         jLabel10 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         rSMaterialButtonRectangle3 = new rojerusan.RSMaterialButtonRectangle();
         jLabel6 = new javax.swing.JLabel();
         rSMaterialButtonRectangle4 = new rojerusan.RSMaterialButtonRectangle();
-        loteactual = new javax.swing.JTextField();
-        nombreproducto = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         rSMaterialButtonRectangle1 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle8 = new rojerusan.RSMaterialButtonRectangle();
-        btnpresentacion = new rojerusan.RSMaterialButtonRectangle();
-        descripcionproducto = new javax.swing.JTextArea();
+        rSMaterialButtonRectangle9 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle21 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle22 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle23 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle7 = new rojerusan.RSMaterialButtonRectangle();
         pinfoprod = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
         jLabel26 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         rSMaterialButtonRectangle44 = new rojerusan.RSMaterialButtonRectangle();
@@ -190,11 +194,12 @@ public boolean maximizado = false;
         rSMaterialButtonRectangle46 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle43 = new rojerusan.RSMaterialButtonRectangle();
         pinfoprod1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         cmbprod = new javax.swing.JComboBox<>();
         jLabel31 = new javax.swing.JLabel();
         rSMaterialButtonRectangle48 = new rojerusan.RSMaterialButtonRectangle();
         jLabel32 = new javax.swing.JLabel();
-        txtareadesproducto = new javax.swing.JTextArea();
         rSMaterialButtonRectangle49 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle50 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle51 = new rojerusan.RSMaterialButtonRectangle();
@@ -359,7 +364,7 @@ public boolean maximizado = false;
         );
         pprincipalLayout.setVerticalGroup(
             pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 822, Short.MAX_VALUE)
+            .addGap(0, 736, Short.MAX_VALUE)
         );
 
         rSPanelsSlider1.add(pprincipal, "card4");
@@ -375,7 +380,7 @@ public boolean maximizado = false;
         pvaciors2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rSMaterialButtonRectangle24.setBackground(new java.awt.Color(33, 40, 105));
-        pvaciors2.add(rSMaterialButtonRectangle24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 490, 600));
+        pvaciors2.add(rSMaterialButtonRectangle24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 490, 600));
 
         rSPanelsSlider2.add(pvaciors2, "card3");
 
@@ -383,53 +388,55 @@ public boolean maximizado = false;
         ppresentacion.setName("ppresentacion"); // NOI18N
         ppresentacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTextArea4.setColumns(20);
+        jTextArea4.setRows(5);
+        jScrollPane4.setViewportView(jTextArea4);
+
+        ppresentacion.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 390, 200));
+
         jLabel19.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 36)); // NOI18N
         jLabel19.setText(" PRESENTACIÓN:");
-        ppresentacion.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 290, 70));
+        ppresentacion.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 15, 290, 70));
 
         rSMaterialButtonRectangle25.setBackground(new java.awt.Color(84, 159, 251));
         rSMaterialButtonRectangle25.setEnabled(false);
-        ppresentacion.add(rSMaterialButtonRectangle25, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 486, 105));
+        ppresentacion.add(rSMaterialButtonRectangle25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 490, 80));
 
         jLabel20.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel20.setText("Nombre:");
-        ppresentacion.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, 40));
+        ppresentacion.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 100, 40));
 
         rSMaterialButtonRectangle27.setBackground(new java.awt.Color(255, 255, 255));
-        ppresentacion.add(rSMaterialButtonRectangle27, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 130, 60));
+        ppresentacion.add(rSMaterialButtonRectangle27, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, 60));
 
-        nombrepresentacion.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
-        nombrepresentacion.setName("nombrepresentacion"); // NOI18N
-        ppresentacion.add(nombrepresentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 380, 40));
+        jTextField7.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
+        ppresentacion.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 390, 40));
 
         rSMaterialButtonRectangle28.setBackground(new java.awt.Color(33, 40, 105));
-        ppresentacion.add(rSMaterialButtonRectangle28, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 420, 60));
+        ppresentacion.add(rSMaterialButtonRectangle28, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 430, 60));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel7.setText("Presentación:");
-        ppresentacion.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 150, -1));
+        ppresentacion.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 160, -1));
 
         rSMaterialButtonRectangle29.setBackground(new java.awt.Color(255, 255, 255));
-        ppresentacion.add(rSMaterialButtonRectangle29, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 160, 60));
-
-        prespresentacion.setColumns(20);
-        prespresentacion.setRows(5);
-        ppresentacion.add(prespresentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 380, 140));
+        ppresentacion.add(rSMaterialButtonRectangle29, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 170, 60));
 
         rSMaterialButtonRectangle30.setBackground(new java.awt.Color(33, 40, 105));
-        ppresentacion.add(rSMaterialButtonRectangle30, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 420, 160));
+        ppresentacion.add(rSMaterialButtonRectangle30, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 430, 260));
 
         rSMaterialButtonRectangle26.setBackground(new java.awt.Color(231, 243, 249));
-        ppresentacion.add(rSMaterialButtonRectangle26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 490, 560));
+        ppresentacion.add(rSMaterialButtonRectangle26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 490, 540));
 
-        btnsustancias.setText("Sustancias");
-        btnsustancias.addMouseListener(new java.awt.event.MouseAdapter() {
+        rSMaterialButtonRectangle2.setBackground(new java.awt.Color(34, 84, 166));
+        rSMaterialButtonRectangle2.setText("Sustancias");
+        rSMaterialButtonRectangle2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnsustanciasMouseClicked(evt);
+                rSMaterialButtonRectangle2MouseClicked(evt);
             }
         });
-        ppresentacion.add(btnsustancias, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 710, -1, -1));
+        ppresentacion.add(rSMaterialButtonRectangle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 640, -1, -1));
 
         rSPanelsSlider2.add(ppresentacion, "card3");
 
@@ -439,77 +446,79 @@ public boolean maximizado = false;
 
         jLabel21.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 36)); // NOI18N
         jLabel21.setText("SUSTANCIAS:");
-        psustancias.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 230, 70));
+        psustancias.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 15, 230, 70));
 
         rSMaterialButtonRectangle31.setBackground(new java.awt.Color(84, 159, 251));
         rSMaterialButtonRectangle31.setEnabled(false);
-        psustancias.add(rSMaterialButtonRectangle31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 486, 105));
+        psustancias.add(rSMaterialButtonRectangle31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 490, 80));
 
         jLabel22.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel22.setText("sustancia 1:");
-        psustancias.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, 40));
+        psustancias.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, 40));
 
         rSMaterialButtonRectangle33.setBackground(new java.awt.Color(255, 255, 255));
-        psustancias.add(rSMaterialButtonRectangle33, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 160, 60));
+        psustancias.add(rSMaterialButtonRectangle33, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 160, 60));
 
         jTextField8.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
-        psustancias.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 380, 40));
+        psustancias.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 380, 40));
 
         rSMaterialButtonRectangle34.setBackground(new java.awt.Color(33, 40, 105));
-        psustancias.add(rSMaterialButtonRectangle34, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 420, 60));
+        psustancias.add(rSMaterialButtonRectangle34, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 420, 60));
 
         jTextField9.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
-        psustancias.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 380, 40));
+        psustancias.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 380, 40));
 
         rSMaterialButtonRectangle35.setBackground(new java.awt.Color(33, 40, 105));
-        psustancias.add(rSMaterialButtonRectangle35, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 420, 60));
+        psustancias.add(rSMaterialButtonRectangle35, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 420, 60));
 
         jLabel23.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel23.setText("sustancia 2:");
-        psustancias.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, 40));
+        psustancias.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, 40));
 
         rSMaterialButtonRectangle36.setBackground(new java.awt.Color(255, 255, 255));
-        psustancias.add(rSMaterialButtonRectangle36, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 160, 60));
+        psustancias.add(rSMaterialButtonRectangle36, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 160, 60));
 
         jTextField10.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
-        psustancias.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 490, 380, 40));
+        psustancias.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 380, 40));
 
         rSMaterialButtonRectangle37.setBackground(new java.awt.Color(33, 40, 105));
-        psustancias.add(rSMaterialButtonRectangle37, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 420, 60));
+        psustancias.add(rSMaterialButtonRectangle37, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 420, 60));
 
         jLabel24.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel24.setText("sustancia 3:");
-        psustancias.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, -1, 40));
+        psustancias.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, -1, 40));
 
         rSMaterialButtonRectangle38.setBackground(new java.awt.Color(255, 255, 255));
-        psustancias.add(rSMaterialButtonRectangle38, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 160, 60));
+        psustancias.add(rSMaterialButtonRectangle38, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 160, 60));
 
         jTextField11.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
-        psustancias.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 620, 380, 40));
+        psustancias.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 550, 380, 40));
 
         rSMaterialButtonRectangle39.setBackground(new java.awt.Color(33, 40, 105));
-        psustancias.add(rSMaterialButtonRectangle39, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 610, 420, 60));
+        psustancias.add(rSMaterialButtonRectangle39, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, 420, 60));
 
         jLabel25.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel25.setText("sustancia 1:");
-        psustancias.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, -1, 40));
+        psustancias.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 490, -1, 40));
 
         rSMaterialButtonRectangle40.setBackground(new java.awt.Color(255, 255, 255));
-        psustancias.add(rSMaterialButtonRectangle40, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, 160, 60));
+        psustancias.add(rSMaterialButtonRectangle40, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 160, 60));
 
         rSMaterialButtonRectangle32.setBackground(new java.awt.Color(231, 243, 249));
-        psustancias.add(rSMaterialButtonRectangle32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 490, 560));
+        psustancias.add(rSMaterialButtonRectangle32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 490, 540));
 
+        rSMaterialButtonRectangle41.setBackground(new java.awt.Color(34, 84, 166));
         rSMaterialButtonRectangle41.setText("Más sustancias");
-        psustancias.add(rSMaterialButtonRectangle41, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 710, 210, -1));
+        psustancias.add(rSMaterialButtonRectangle41, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 640, 210, -1));
 
+        rSMaterialButtonRectangle42.setBackground(new java.awt.Color(34, 84, 166));
         rSMaterialButtonRectangle42.setText("Lote");
         rSMaterialButtonRectangle42.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 rSMaterialButtonRectangle42MouseClicked(evt);
             }
         });
-        psustancias.add(rSMaterialButtonRectangle42, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 710, 210, -1));
+        psustancias.add(rSMaterialButtonRectangle42, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 640, 210, -1));
 
         rSPanelsSlider2.add(psustancias, "card4");
 
@@ -519,74 +528,74 @@ public boolean maximizado = false;
 
         jLabel9.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 36)); // NOI18N
         jLabel9.setText("LOTE:");
-        pLote.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 100, 70));
+        pLote.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 15, 100, 70));
 
         jLabel18.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Q.");
-        pLote.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 610, 40, 40));
+        pLote.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 530, 50, 40));
 
         jTextField3.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
-        pLote.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 610, 210, 40));
+        pLote.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 530, 220, 40));
 
         rSMaterialButtonRectangle5.setBackground(new java.awt.Color(84, 159, 251));
         rSMaterialButtonRectangle5.setEnabled(false);
-        pLote.add(rSMaterialButtonRectangle5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 486, 105));
+        pLote.add(rSMaterialButtonRectangle5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 490, 80));
 
         jLabel11.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Q.");
-        pLote.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 520, 40, 40));
+        pLote.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, 50, 40));
 
         jLabel17.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Unidades");
-        pLote.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, -1, 40));
+        pLote.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 390, 100, 40));
 
         rSMaterialButtonRectangle6.setBackground(new java.awt.Color(33, 40, 105));
-        pLote.add(rSMaterialButtonRectangle6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 600, 310, 60));
+        pLote.add(rSMaterialButtonRectangle6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, 320, 60));
 
         jLabel16.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel16.setText("No. Lote:");
-        pLote.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, 40));
+        pLote.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 140, 100, 40));
 
         jLabel12.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel12.setText("Fecha de caducidad:");
-        pLote.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 305, -1, 40));
+        pLote.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 220, 40));
 
         rSMaterialButtonRectangle11.setBackground(new java.awt.Color(255, 255, 255));
-        pLote.add(rSMaterialButtonRectangle11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 295, 250, 60));
+        pLote.add(rSMaterialButtonRectangle11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 260, 60));
 
         jLabel13.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel13.setText(" Cantidad:");
-        pLote.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, 40));
+        pLote.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 390, 110, 40));
 
         rSMaterialButtonRectangle12.setBackground(new java.awt.Color(255, 255, 255));
-        pLote.add(rSMaterialButtonRectangle12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 150, 60));
-        pLote.add(rSDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 366, 380, -1));
+        pLote.add(rSMaterialButtonRectangle12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 160, 60));
+        pLote.add(rSDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 390, -1));
 
         jLabel14.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel14.setText("Costo:");
-        pLote.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, -1, 40));
+        pLote.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 460, 70, 40));
 
         rSMaterialButtonRectangle13.setBackground(new java.awt.Color(255, 255, 255));
-        pLote.add(rSMaterialButtonRectangle13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, 100, 60));
+        pLote.add(rSMaterialButtonRectangle13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 110, 60));
 
         jLabel15.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel15.setText("Precio:");
-        pLote.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 610, 80, 40));
+        pLote.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, 90, 40));
 
         jTextField6.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
-        pLote.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 520, 210, 40));
+        pLote.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 460, 220, 40));
 
         jTextField4.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
-        pLote.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 380, 40));
+        pLote.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 390, 40));
 
         jTextField5.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
-        pLote.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, 120, 40));
+        pLote.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 130, 40));
 
         rSMaterialButtonRectangle14.setBackground(new java.awt.Color(255, 255, 255));
-        pLote.add(rSMaterialButtonRectangle14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 600, 110, 60));
+        pLote.add(rSMaterialButtonRectangle14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 120, 60));
 
         rSMaterialButtonRectangle15.setBackground(new java.awt.Color(34, 84, 166));
         rSMaterialButtonRectangle15.setText("Ingresar Lote");
@@ -595,31 +604,31 @@ public boolean maximizado = false;
                 rSMaterialButtonRectangle15MouseClicked(evt);
             }
         });
-        pLote.add(rSMaterialButtonRectangle15, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 720, -1, -1));
+        pLote.add(rSMaterialButtonRectangle15, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 640, -1, -1));
 
         rSMaterialButtonRectangle16.setBackground(new java.awt.Color(255, 255, 255));
-        pLote.add(rSMaterialButtonRectangle16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 130, 60));
+        pLote.add(rSMaterialButtonRectangle16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, 60));
 
         rSMaterialButtonRectangle17.setBackground(new java.awt.Color(33, 40, 105));
-        pLote.add(rSMaterialButtonRectangle17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 420, 60));
+        pLote.add(rSMaterialButtonRectangle17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 430, 60));
 
         rSMaterialButtonRectangle18.setBackground(new java.awt.Color(33, 40, 105));
-        pLote.add(rSMaterialButtonRectangle18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 355, 420, 60));
+        pLote.add(rSMaterialButtonRectangle18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 430, 60));
 
         rSMaterialButtonRectangle19.setBackground(new java.awt.Color(33, 40, 105));
-        pLote.add(rSMaterialButtonRectangle19, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 260, 60));
+        pLote.add(rSMaterialButtonRectangle19, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 270, 60));
 
         rSMaterialButtonRectangle20.setBackground(new java.awt.Color(33, 40, 105));
-        pLote.add(rSMaterialButtonRectangle20, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, 310, 60));
+        pLote.add(rSMaterialButtonRectangle20, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 320, 60));
 
         rSMaterialButtonRectangle10.setBackground(new java.awt.Color(231, 243, 249));
-        pLote.add(rSMaterialButtonRectangle10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 490, 560));
+        pLote.add(rSMaterialButtonRectangle10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 490, 540));
 
         rSPanelsSlider2.add(pLote, "card2");
 
         jPanel7.add(rSPanelsSlider2, "card2");
 
-        pprodylot.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 510, 810));
+        pprodylot.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 510, 730));
 
         jPanel8.setLayout(new java.awt.CardLayout());
 
@@ -627,66 +636,68 @@ public boolean maximizado = false;
         pproducto.setName("pproducto"); // NOI18N
         pproducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane3.setViewportView(jTextArea3);
+
+        pproducto.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 390, 110));
+
         jLabel10.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 36)); // NOI18N
         jLabel10.setText("INGRESAR PRODUCTO:");
-        pproducto.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 370, 70));
+        pproducto.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 15, 370, 70));
 
         jLabel8.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel8.setText("Nombre:");
-        pproducto.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, 40));
+        pproducto.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 100, 40));
 
         rSMaterialButtonRectangle3.setBackground(new java.awt.Color(255, 255, 255));
-        pproducto.add(rSMaterialButtonRectangle3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 130, 60));
+        pproducto.add(rSMaterialButtonRectangle3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, 60));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel6.setText(" Descripción:");
-        pproducto.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 150, -1));
+        pproducto.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 160, -1));
 
         rSMaterialButtonRectangle4.setBackground(new java.awt.Color(255, 255, 255));
-        pproducto.add(rSMaterialButtonRectangle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 160, 60));
+        pproducto.add(rSMaterialButtonRectangle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 170, 60));
 
-        loteactual.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
-        pproducto.add(loteactual, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, 380, 40));
+        jTextField2.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
+        pproducto.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 390, 40));
 
-        nombreproducto.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
-        pproducto.add(nombreproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 250, 380, 40));
+        jTextField1.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
+        pproducto.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 390, 40));
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel5.setText("Lote actual:");
-        pproducto.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, -1, -1));
+        pproducto.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 120, -1));
 
         rSMaterialButtonRectangle1.setBackground(new java.awt.Color(255, 255, 255));
-        pproducto.add(rSMaterialButtonRectangle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 160, 60));
+        pproducto.add(rSMaterialButtonRectangle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 170, 60));
 
         rSMaterialButtonRectangle8.setBackground(new java.awt.Color(84, 159, 251));
         rSMaterialButtonRectangle8.setEnabled(false);
-        pproducto.add(rSMaterialButtonRectangle8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 486, 105));
+        pproducto.add(rSMaterialButtonRectangle8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 490, 80));
 
-        btnpresentacion.setBackground(new java.awt.Color(34, 84, 166));
-        btnpresentacion.setText("Presentacion");
-        btnpresentacion.addMouseListener(new java.awt.event.MouseAdapter() {
+        rSMaterialButtonRectangle9.setBackground(new java.awt.Color(34, 84, 166));
+        rSMaterialButtonRectangle9.setText("Presentacion");
+        rSMaterialButtonRectangle9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnpresentacionMouseClicked(evt);
+                rSMaterialButtonRectangle9MouseClicked(evt);
             }
         });
-        pproducto.add(btnpresentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 720, -1, -1));
-
-        descripcionproducto.setColumns(20);
-        descripcionproducto.setRows(5);
-        pproducto.add(descripcionproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 380, 110));
+        pproducto.add(rSMaterialButtonRectangle9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 640, -1, -1));
 
         rSMaterialButtonRectangle21.setBackground(new java.awt.Color(33, 40, 105));
-        pproducto.add(rSMaterialButtonRectangle21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 420, 130));
+        pproducto.add(rSMaterialButtonRectangle21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 430, 130));
 
         rSMaterialButtonRectangle22.setBackground(new java.awt.Color(33, 40, 105));
-        pproducto.add(rSMaterialButtonRectangle22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 580, 420, 60));
+        pproducto.add(rSMaterialButtonRectangle22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, 430, 60));
 
         rSMaterialButtonRectangle23.setBackground(new java.awt.Color(33, 40, 105));
-        pproducto.add(rSMaterialButtonRectangle23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 420, 60));
+        pproducto.add(rSMaterialButtonRectangle23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 430, 60));
 
         rSMaterialButtonRectangle7.setBackground(new java.awt.Color(231, 243, 249));
-        pproducto.add(rSMaterialButtonRectangle7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 490, 560));
+        pproducto.add(rSMaterialButtonRectangle7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 490, 540));
 
         rSPanelsSlider3.add(pproducto, "card2");
 
@@ -694,33 +705,39 @@ public boolean maximizado = false;
         pinfoprod.setName("pinfoprod"); // NOI18N
         pinfoprod.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        pinfoprod.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 390, 110));
+
         jLabel26.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel26.setText("Nombre del producto");
-        pinfoprod.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 390, 40));
+        pinfoprod.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 390, 40));
 
         jLabel28.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel28.setText("Nombre:");
-        pinfoprod.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, 40));
+        pinfoprod.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, 40));
 
         rSMaterialButtonRectangle44.setBackground(new java.awt.Color(255, 255, 255));
-        pinfoprod.add(rSMaterialButtonRectangle44, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 130, 60));
+        pinfoprod.add(rSMaterialButtonRectangle44, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 130, 60));
 
         jLabel27.setBackground(new java.awt.Color(255, 255, 255));
         jLabel27.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel27.setText(" Descripción:");
-        pinfoprod.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 150, -1));
+        pinfoprod.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 150, -1));
 
         rSMaterialButtonRectangle45.setBackground(new java.awt.Color(183, 221, 237));
-        pinfoprod.add(rSMaterialButtonRectangle45, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 430, 130));
+        pinfoprod.add(rSMaterialButtonRectangle45, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 430, 130));
 
         rSMaterialButtonRectangle47.setBackground(new java.awt.Color(183, 221, 237));
-        pinfoprod.add(rSMaterialButtonRectangle47, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 430, 60));
+        pinfoprod.add(rSMaterialButtonRectangle47, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 430, 60));
 
         rSMaterialButtonRectangle46.setBackground(new java.awt.Color(255, 255, 255));
-        pinfoprod.add(rSMaterialButtonRectangle46, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 160, 60));
+        pinfoprod.add(rSMaterialButtonRectangle46, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 160, 60));
 
         rSMaterialButtonRectangle43.setBackground(new java.awt.Color(33, 40, 105));
-        pinfoprod.add(rSMaterialButtonRectangle43, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 490, 600));
+        pinfoprod.add(rSMaterialButtonRectangle43, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 490, 600));
 
         rSPanelsSlider3.add(pinfoprod, "card3");
 
@@ -728,43 +745,45 @@ public boolean maximizado = false;
         pinfoprod1.setName("pinfoprod"); // NOI18N
         pinfoprod1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        pinfoprod1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 390, 110));
+
         cmbprod.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
         cmbprod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pinfoprod1.add(cmbprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 390, 40));
+        pinfoprod1.add(cmbprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 390, 40));
 
         jLabel31.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel31.setText("Nombre:");
-        pinfoprod1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, 40));
+        pinfoprod1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, 40));
 
         rSMaterialButtonRectangle48.setBackground(new java.awt.Color(255, 255, 255));
-        pinfoprod1.add(rSMaterialButtonRectangle48, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 130, 60));
+        pinfoprod1.add(rSMaterialButtonRectangle48, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 130, 60));
 
         jLabel32.setBackground(new java.awt.Color(255, 255, 255));
         jLabel32.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel32.setText(" Descripción:");
-        pinfoprod1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 150, -1));
-
-        txtareadesproducto.setColumns(20);
-        txtareadesproducto.setRows(5);
-        pinfoprod1.add(txtareadesproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 390, 110));
+        pinfoprod1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 150, -1));
 
         rSMaterialButtonRectangle49.setBackground(new java.awt.Color(183, 221, 237));
-        pinfoprod1.add(rSMaterialButtonRectangle49, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 430, 130));
+        pinfoprod1.add(rSMaterialButtonRectangle49, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 430, 130));
 
         rSMaterialButtonRectangle50.setBackground(new java.awt.Color(183, 221, 237));
-        pinfoprod1.add(rSMaterialButtonRectangle50, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 430, 60));
+        pinfoprod1.add(rSMaterialButtonRectangle50, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 430, 60));
 
         rSMaterialButtonRectangle51.setBackground(new java.awt.Color(255, 255, 255));
-        pinfoprod1.add(rSMaterialButtonRectangle51, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 160, 60));
+        pinfoprod1.add(rSMaterialButtonRectangle51, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 160, 60));
 
         rSMaterialButtonRectangle52.setBackground(new java.awt.Color(33, 40, 105));
-        pinfoprod1.add(rSMaterialButtonRectangle52, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 490, 600));
+        pinfoprod1.add(rSMaterialButtonRectangle52, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 490, 600));
 
         rSPanelsSlider3.add(pinfoprod1, "card3");
 
         jPanel8.add(rSPanelsSlider3, "card3");
 
-        pprodylot.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 810));
+        pprodylot.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 730));
 
         rSPanelsSlider1.add(pprodylot, "card2");
 
@@ -849,9 +868,8 @@ public boolean maximizado = false;
         ptablaLayout.setVerticalGroup(
             ptablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ptablaLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(scrollgai1, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addContainerGap()
+                .addComponent(scrollgai1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 36)); // NOI18N
@@ -895,12 +913,12 @@ public boolean maximizado = false;
                     .addComponent(pbuscart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(ptabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(45, 45, 45))
+                .addGap(75, 75, 75))
             .addGroup(pproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pproductosLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 344, Short.MAX_VALUE)
                     .addComponent(jLabel1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 344, Short.MAX_VALUE)))
         );
 
         rSPanelsSlider1.add(pproductos, "card3");
@@ -919,10 +937,11 @@ public boolean maximizado = false;
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 822, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -997,16 +1016,16 @@ public boolean maximizado = false;
         jButton2.setEnabled(false);
     }//GEN-LAST:event_jButton4MouseClicked
 
-    private void btnpresentacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpresentacionMouseClicked
+    private void rSMaterialButtonRectangle9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle9MouseClicked
         //ingresar producto
         rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
         rSPanelsSlider2.setPanelSlider((int) 1.2, ppresentacion, RSPanelsSlider.DIRECT.LEFT);
-    }//GEN-LAST:event_btnpresentacionMouseClicked
+    }//GEN-LAST:event_rSMaterialButtonRectangle9MouseClicked
 
-    private void btnsustanciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsustanciasMouseClicked
+    private void rSMaterialButtonRectangle2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle2MouseClicked
         rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
         rSPanelsSlider2.setPanelSlider((int) 1.2, psustancias, RSPanelsSlider.DIRECT.LEFT);
-    }//GEN-LAST:event_btnsustanciasMouseClicked
+    }//GEN-LAST:event_rSMaterialButtonRectangle2MouseClicked
 
     private void rSMaterialButtonRectangle42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle42MouseClicked
         rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
@@ -1021,6 +1040,7 @@ public boolean maximizado = false;
     }//GEN-LAST:event_rSMaterialButtonRectangle15MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        jButton2.setEnabled(false);
         rSPanelsSlider3.setPanelSlider( (int) 1.2,pinfoprod1, RSPanelsSlider.DIRECT.LEFT);
         rSPanelsSlider2.setPanelSlider( (int) 1.2,pLote, RSPanelsSlider.DIRECT.LEFT);
         rSPanelsSlider1.setPanelSlider( (int) 1.2,pprodylot, RSPanelsSlider.DIRECT.LEFT);
@@ -1063,11 +1083,8 @@ public boolean maximizado = false;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rojerusan.RSMaterialButtonRectangle btnpresentacion;
-    private rojerusan.RSMaterialButtonRectangle btnsustancias;
     private javax.swing.JComboBox<String> cmbbusquedas;
     private javax.swing.JComboBox<String> cmbprod;
-    private javax.swing.JTextArea descripcionproducto;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -1112,17 +1129,25 @@ public boolean maximizado = false;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JTextField loteactual;
-    private javax.swing.JTextField nombrepresentacion;
-    private javax.swing.JTextField nombreproducto;
     private javax.swing.JPanel pLote;
     private javax.swing.JPanel pbuscar;
     private javax.swing.JPanel pbuscart;
@@ -1133,7 +1158,6 @@ public boolean maximizado = false;
     private javax.swing.JPanel pproducto;
     private javax.swing.JPanel pproductos;
     private javax.swing.JPanel pprodylot;
-    private javax.swing.JTextArea prespresentacion;
     private javax.swing.JPanel psustancias;
     private javax.swing.JPanel ptabla;
     private javax.swing.JPanel pvaciors2;
@@ -1149,6 +1173,7 @@ public boolean maximizado = false;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle17;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle18;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle19;
+    private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle2;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle20;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle21;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle22;
@@ -1188,12 +1213,12 @@ public boolean maximizado = false;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle6;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle7;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle8;
+    private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle9;
     private rojerusan.RSPanelsSlider rSPanelsSlider1;
     private rojerusan.RSPanelsSlider rSPanelsSlider2;
     private rojerusan.RSPanelsSlider rSPanelsSlider3;
     private javax.swing.JScrollPane scrollgai1;
     private rojerusan.RSTableMetro tableInventario;
-    private javax.swing.JTextArea txtareadesproducto;
     private javax.swing.JTextField txtbnprod;
     // End of variables declaration//GEN-END:variables
 }
