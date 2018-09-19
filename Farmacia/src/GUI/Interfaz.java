@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import Clases.Producto;
+import Clases.sustancias;
 import com.sun.awt.AWTUtilities;
 import java.awt.Color;
 import java.awt.Component;
@@ -22,6 +24,8 @@ import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Locale;
 import static java.util.Optional.empty;
 import static javafx.scene.paint.Color.color;
@@ -29,6 +33,8 @@ import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import rojeru_san.componentes.RSDateChooser;
+import rojerusan.RSNotifyAnimated;
 import rojerusan.RSPanelsSlider;
 
 /**
@@ -45,6 +51,10 @@ public boolean maximizado = false;
      * Creates new form Interfaz
      */
     public Interfaz() {
+        producto = new Producto();
+        sustancia = new ArrayList<>();
+        String nombre_producto = "";
+        String descripcion_producto = "";
         initComponents();
         this.setLocationRelativeTo(null);
     //Image ico = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/icono.png"));
@@ -436,6 +446,11 @@ public boolean maximizado = false;
                 rSMaterialButtonRectangle2MouseClicked(evt);
             }
         });
+        rSMaterialButtonRectangle2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSMaterialButtonRectangle2ActionPerformed(evt);
+            }
+        });
         ppresentacion.add(rSMaterialButtonRectangle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 640, -1, -1));
 
         rSPanelsSlider2.add(ppresentacion, "card3");
@@ -516,6 +531,11 @@ public boolean maximizado = false;
         rSMaterialButtonRectangle42.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 rSMaterialButtonRectangle42MouseClicked(evt);
+            }
+        });
+        rSMaterialButtonRectangle42.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSMaterialButtonRectangle42ActionPerformed(evt);
             }
         });
         psustancias.add(rSMaterialButtonRectangle42, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 640, 210, -1));
@@ -604,6 +624,11 @@ public boolean maximizado = false;
                 rSMaterialButtonRectangle15MouseClicked(evt);
             }
         });
+        rSMaterialButtonRectangle15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSMaterialButtonRectangle15ActionPerformed(evt);
+            }
+        });
         pLote.add(rSMaterialButtonRectangle15, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 640, -1, -1));
 
         rSMaterialButtonRectangle16.setBackground(new java.awt.Color(255, 255, 255));
@@ -683,6 +708,11 @@ public boolean maximizado = false;
         rSMaterialButtonRectangle9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 rSMaterialButtonRectangle9MouseClicked(evt);
+            }
+        });
+        rSMaterialButtonRectangle9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSMaterialButtonRectangle9ActionPerformed(evt);
             }
         });
         pproducto.add(rSMaterialButtonRectangle9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 640, -1, -1));
@@ -1018,25 +1048,65 @@ public boolean maximizado = false;
 
     private void rSMaterialButtonRectangle9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle9MouseClicked
         //ingresar producto
-        rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
-        rSPanelsSlider2.setPanelSlider((int) 1.2, ppresentacion, RSPanelsSlider.DIRECT.LEFT);
+        if(verificar_ingresar_producto()) {
+            rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
+            rSPanelsSlider2.setPanelSlider((int) 1.2, ppresentacion, RSPanelsSlider.DIRECT.LEFT);
+        }
     }//GEN-LAST:event_rSMaterialButtonRectangle9MouseClicked
 
     private void rSMaterialButtonRectangle2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle2MouseClicked
-        rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
-        rSPanelsSlider2.setPanelSlider((int) 1.2, psustancias, RSPanelsSlider.DIRECT.LEFT);
+        if(verificar_presentacion()){
+            rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
+            rSPanelsSlider2.setPanelSlider((int) 1.2, psustancias, RSPanelsSlider.DIRECT.LEFT);
+        }
     }//GEN-LAST:event_rSMaterialButtonRectangle2MouseClicked
 
     private void rSMaterialButtonRectangle42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle42MouseClicked
-        rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
-        rSPanelsSlider2.setPanelSlider((int) 1.2, pLote, RSPanelsSlider.DIRECT.LEFT);
-       
+        if(verificar_sustancias()){
+            rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
+            rSPanelsSlider2.setPanelSlider((int) 1.2, pLote, RSPanelsSlider.DIRECT.LEFT);
+            byte posicion = -1;
+            if(jTextField8.getText().length() != 0)
+            {
+                sustancia.add(new sustancias());
+                posicion++;
+                sustancia.get(posicion).setSustancia(jTextField8.getText());
+            }
+            if(jTextField9.getText().length() != 0)
+            {
+                sustancia.add(new sustancias());
+                posicion++;
+                sustancia.get(posicion).setSustancia(jTextField9.getText());
+            }
+            if(jTextField10.getText().length() != 0)
+            {
+                sustancia.add(new sustancias());
+                posicion++;
+                sustancia.get(posicion).setSustancia(jTextField10.getText());
+            }
+            if(jTextField11.getText().length() != 0)
+            {
+                sustancia.add(new sustancias());
+                posicion++;
+                sustancia.get(posicion).setSustancia(jTextField11.getText());
+            }
+        }
     }//GEN-LAST:event_rSMaterialButtonRectangle42MouseClicked
 
     private void rSMaterialButtonRectangle15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle15MouseClicked
-        rSPanelsSlider1.setPanelSlider( (int) 1.2,pprincipal, RSPanelsSlider.DIRECT.LEFT);
-        rSPanelsSlider3.setPanelSlider( (int) 1.2,pproducto, RSPanelsSlider.DIRECT.LEFT);
-        rSPanelsSlider2.setPanelSlider( (int) 1.2,pvaciors2, RSPanelsSlider.DIRECT.LEFT);
+        if(verificar_lote()) {
+            rSPanelsSlider1.setPanelSlider( (int) 1.2,pprincipal, RSPanelsSlider.DIRECT.LEFT);
+            rSPanelsSlider3.setPanelSlider( (int) 1.2,pproducto, RSPanelsSlider.DIRECT.LEFT);
+            rSPanelsSlider2.setPanelSlider( (int) 1.2,pvaciors2, RSPanelsSlider.DIRECT.LEFT);
+            producto.insertarProducto(jTextField1.getText(), jTextArea3.getText(), jTextField7.getText(), 
+                jTextArea4.getText(), Integer.parseInt(jTextField4.getText()), getFecha(rSDateChooser1), 
+                Integer.parseInt(jTextField5.getText()), Float.parseFloat(jTextField6.getText()), 
+                Float.parseFloat(jTextField3.getText()));
+            for(byte i=0; i<sustancia.size(); i++)
+            {
+                producto.insertarSustancias(sustancia.get(i).getSustancia());
+            }        
+        }
     }//GEN-LAST:event_rSMaterialButtonRectangle15MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
@@ -1047,6 +1117,128 @@ public boolean maximizado = false;
  
     }//GEN-LAST:event_jButton6MouseClicked
 
+    public String getFecha(RSDateChooser jd) {
+        if (jd.getDatoFecha() != null) {
+            return formato.format(jd.getDatoFecha());
+        } else {
+            return null;
+        }
+    }
+    
+    private void rSMaterialButtonRectangle15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle15ActionPerformed
+
+    }//GEN-LAST:event_rSMaterialButtonRectangle15ActionPerformed
+
+    private void rSMaterialButtonRectangle42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle42ActionPerformed
+
+    }//GEN-LAST:event_rSMaterialButtonRectangle42ActionPerformed
+
+    private void rSMaterialButtonRectangle9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rSMaterialButtonRectangle9ActionPerformed
+
+    private void rSMaterialButtonRectangle2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rSMaterialButtonRectangle2ActionPerformed
+
+    private boolean verificar_presentacion()
+    {
+        if(jTextField7.getText().length() == 0)
+        {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Nombre aún vacío",
+                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            jTextField7.requestFocus();
+            return false;
+        }else if(jTextArea4.getText().length() == 0)
+        {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Presentación aún vacío",
+                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            jTextArea4.requestFocus();
+            return false;
+        }
+        else
+            return true;    
+    }
+    
+    private boolean verificar_sustancias()
+    {
+        if((jTextField8.getText().length() == 0) && (jTextField9.getText().length() == 0)
+                && (jTextField10.getText().length() == 0) && (jTextField11.getText().length() == 0))
+        {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Ingrese al menos una sustancia",
+                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            jTextField8.requestFocus();
+            return false;
+        }
+        else
+            return true;
+    }
+    
+    private boolean verificar_lote()
+    {
+        if(jTextField4.getText().length() == 0)
+        {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo No Lote aún vacío",
+                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            jTextField4.requestFocus();
+            return false;
+            
+        }else if(getFecha(rSDateChooser1).equals(""))
+        {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Fecha de caducidad aún vacío",
+                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            rSDateChooser1.requestFocus();
+            return false;
+        } else if(jTextField5.getText().length() == 0)
+        {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Cantidad aún vacío",
+                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            jTextField5.requestFocus();
+            return false;
+        }else if(jTextField6.getText().length() == 0)
+        {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Costo aún vacío",
+                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            jTextField6.requestFocus();
+            return false;
+        }else if(jTextField3.getText().length() == 0)
+        {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Precio aún vacío",
+                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            jTextField3.requestFocus();
+            return false;
+        }else
+            return true;
+    }
+    
+    private boolean verificar_ingresar_producto()
+    {
+        if(jTextField1.getText().length() == 0)
+        {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Nombre aún vacío",
+                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            jTextField1.requestFocus();
+            return false;
+        }else if(jTextArea3.getText().length() == 0)
+        {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Descripción aún vacío",
+                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+            jTextArea3.requestFocus();
+            return false;
+        }
+        else
+            return true;
+    }
     /**
      * @param args the command line arguments
      */
@@ -1082,6 +1274,9 @@ public boolean maximizado = false;
         });
     }
 
+    private final SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+    private final Producto producto;
+    private ArrayList<sustancias> sustancia;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbbusquedas;
     private javax.swing.JComboBox<String> cmbprod;
