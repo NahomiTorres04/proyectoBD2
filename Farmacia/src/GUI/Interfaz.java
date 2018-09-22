@@ -222,7 +222,6 @@ public boolean maximizado = false;
         ptabla = new javax.swing.JPanel();
         scrollgai1 = new javax.swing.JScrollPane();
         tableInventario = new rojerusan.RSTableMetro();
-        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -825,7 +824,7 @@ public boolean maximizado = false;
         pbuscar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmbbusquedas.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
-        cmbbusquedas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbbusquedas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Por nombre", "Por sustancia" }));
         pbuscar.add(cmbbusquedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 230, 30));
 
         pbuscart.setBackground(new java.awt.Color(255, 255, 255));
@@ -834,6 +833,14 @@ public boolean maximizado = false;
         txtbnprod.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
         txtbnprod.setForeground(new java.awt.Color(255, 255, 255));
         txtbnprod.setBorder(null);
+        txtbnprod.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtbnprodKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtbnprodKeyTyped(evt);
+            }
+        });
         pbuscart.add(txtbnprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 580, 50));
 
         ptabla.setBackground(new java.awt.Color(255, 255, 255));
@@ -845,23 +852,23 @@ public boolean maximizado = false;
         };
         tableInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Código", " Nombre", "Descripción", "Cantidad", "Precio unitario"
+                " Nombre", "Descripción", "Cantidad", "Precio unitario"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, true, false, true
+                true, true, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -902,9 +909,6 @@ public boolean maximizado = false;
                 .addComponent(scrollgai1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 36)); // NOI18N
-        jLabel1.setText("Productos");
-
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 36)); // NOI18N
         jLabel3.setText("PRODUCTOS:");
 
@@ -926,11 +930,6 @@ public boolean maximizado = false;
                                 .addComponent(pbuscart, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(152, Short.MAX_VALUE))))
-            .addGroup(pproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pproductosLayout.createSequentialGroup()
-                    .addGap(0, 436, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addGap(0, 436, Short.MAX_VALUE)))
         );
         pproductosLayout.setVerticalGroup(
             pproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -944,11 +943,6 @@ public boolean maximizado = false;
                 .addGap(18, 18, 18)
                 .addComponent(ptabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(75, 75, 75))
-            .addGroup(pproductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pproductosLayout.createSequentialGroup()
-                    .addGap(0, 344, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addGap(0, 344, Short.MAX_VALUE)))
         );
 
         rSPanelsSlider1.add(pproductos, "card3");
@@ -970,7 +964,7 @@ public boolean maximizado = false;
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1141,6 +1135,25 @@ public boolean maximizado = false;
         // TODO add your handling code here:
     }//GEN-LAST:event_rSMaterialButtonRectangle2ActionPerformed
 
+    private void txtbnprodKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbnprodKeyReleased
+        /**
+         * Se buscará en la base de datos los datos requeridos por la tabla en la tabla productos
+         * en función del parámetro de la lista desplegable
+         */
+        if(cmbbusquedas.getSelectedItem().toString().equals("Por nombre"))
+        {
+            tableInventario.setModel(producto.buscarPorNombre(txtbnprod.getText(), tableInventario));
+        }
+        else if(cmbbusquedas.getSelectedItem().toString().equals("Por sustancia"))
+        {
+            tableInventario.setModel(producto.buscarPorSustancia(txtbnprod.getText(), tableInventario));
+        }
+    }//GEN-LAST:event_txtbnprodKeyReleased
+
+    private void txtbnprodKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbnprodKeyTyped
+//        tableInventario.setModel(producto.buscarPorNombre(txtbnprod.getText(), tableInventario));
+    }//GEN-LAST:event_txtbnprodKeyTyped
+
     private boolean verificar_presentacion()
     {
         if(jTextField7.getText().length() == 0)
@@ -1286,7 +1299,6 @@ public boolean maximizado = false;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

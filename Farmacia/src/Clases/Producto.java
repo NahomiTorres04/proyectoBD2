@@ -7,9 +7,13 @@ package Clases;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import rojerusan.RSTableMetro;
 
 /**
  *
@@ -56,5 +60,69 @@ public class Producto {
             Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
         }
         return true;
+    }
+    
+    public DefaultTableModel buscarPorNombre (String nombre, RSTableMetro tabla)
+    {
+        try
+        {
+            String[] titulos = new String[4];
+            for (byte i = 0; i < titulos.length; i++)
+            {
+                titulos[i] = tabla.getColumnName(i);
+            }
+            String[] registros = new String[4];
+            String sql = "select P.nombre_producto, P.descripcion, sum(L.cantidad), L.precio from producto P inner join lote L on P.id = L.producto_id"
+                    + " where P.nombre_producto LIKE '%" + nombre + "%';";
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next())
+            {
+                registros[0] = rs.getString("P.nombre_producto");
+                registros[1] = rs.getString("P.descripcion");
+                registros[2] = "Q." + rs.getString("sum(L.cantidad)");
+                registros[3] = "Q." + rs.getString("L.precio");
+                modelo.addRow(registros);
+            }
+            return modelo;
+        } catch (SQLException ex) {
+            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public DefaultTableModel buscarPorSustancia (String sustancia, RSTableMetro tabla)
+    {
+        try
+        {
+            String[] titulos = new String[4];
+            for(byte i = 0; i < titulos.length; i++)
+            {
+                titulos[i] = tabla.getColumnName(i);
+            }
+            String[] registros = new String[4];
+            String sql = "select P.nombre_producto, P.descripcion, sum(L.cantidad), L.precio"
+                    + " from producto P inner join lote L on P.id = L.producto_id"
+                    + " inner join detalle_sustancia DS on P.id = DS.producto_id"
+                    + " inner join sustancias S on DS.sustancias_id = S.id where"
+                    + " S.nombre_sustancia LIKE '%" + sustancia + "%' group by"
+                    + " P.nombre_producto";
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next())
+            {
+                registros[0] = rs.getString("P.nombre_producto");
+                registros[1] = rs.getString("P.descripcion");
+                registros[2] = "Q." + rs.getString("sum(L.cantidad)");
+                registros[3] = "Q." + rs.getString("L.precio");
+                modelo.addRow(registros);
+            }
+            return modelo;
+        } catch (SQLException ex) {
+            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }
