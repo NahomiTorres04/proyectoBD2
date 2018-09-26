@@ -24,16 +24,22 @@ import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Locale;
 import static java.util.Optional.empty;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static javafx.scene.paint.Color.color;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import javax.swing.table.TableModel;
 import rojeru_san.componentes.RSDateChooser;
 import rojerusan.RSNotifyAnimated;
 import rojerusan.RSPanelsSlider;
@@ -1192,8 +1198,27 @@ public boolean maximizado = false;
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // agregará una venta por cada producto seleccionado
         int cantidad = Integer.parseInt(JOptionPane.showInputDialog("ingrese la cantidad"));
-        
-        //producto.vender(cantidad, )
+        TableModel modelo = tableInventario.getModel();
+        String nombre = modelo.getValueAt(tableInventario.getSelectedRow(), 0).toString();
+        SimpleDateFormat d = new SimpleDateFormat("dd-MM-yy");
+        Date fecha = new Date();
+        String fecha_v = (fecha.getYear() + 1900) + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate();
+        System.out.println(fecha_v);
+        producto.Start_Transaction();
+        boolean hecho = producto.vender(cantidad, nombre);
+        producto.Commit_Rollback(hecho);
+        if(hecho == true)
+        {
+            new rojerusan.RSNotifyAnimated("¡ÉXITO!", "Venta completa",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
+        else
+        {
+            new rojerusan.RSNotifyAnimated("¡ERROR!", "Ha ocurrido un error en el proceso",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private boolean verificar_presentacion()
