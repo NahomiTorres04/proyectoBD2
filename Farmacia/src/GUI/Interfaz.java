@@ -31,6 +31,7 @@ import static java.util.Optional.empty;
 import static javafx.scene.paint.Color.color;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import rojeru_san.componentes.RSDateChooser;
@@ -87,6 +88,9 @@ public boolean maximizado = false;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -223,6 +227,23 @@ public boolean maximizado = false;
         scrollgai1 = new javax.swing.JScrollPane();
         tableInventario = new rojerusan.RSTableMetro();
         jLabel3 = new javax.swing.JLabel();
+
+        jMenu1.setText("Opciones");
+
+        jMenuItem1.setText("Agregar venta");
+        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem1MouseClicked(evt);
+            }
+        });
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jPopupMenu1.add(jMenu1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -883,6 +904,7 @@ public boolean maximizado = false;
         tableInventario.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
         tableInventario.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
         tableInventario.setColorSelBackgound(new java.awt.Color(22, 54, 77));
+        tableInventario.setComponentPopupMenu(jPopupMenu1);
         tableInventario.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         tableInventario.setFuenteFilas(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         tableInventario.setFuenteFilasSelect(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
@@ -891,6 +913,11 @@ public boolean maximizado = false;
         tableInventario.setGrosorBordeHead(0);
         tableInventario.setRowHeight(22);
         tableInventario.getTableHeader().setReorderingAllowed(false);
+        tableInventario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableInventarioMouseClicked(evt);
+            }
+        });
         scrollgai1.setViewportView(tableInventario);
 
         javax.swing.GroupLayout ptablaLayout = new javax.swing.GroupLayout(ptabla);
@@ -1154,6 +1181,21 @@ public boolean maximizado = false;
 //        tableInventario.setModel(producto.buscarPorNombre(txtbnprod.getText(), tableInventario));
     }//GEN-LAST:event_txtbnprodKeyTyped
 
+    private void tableInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableInventarioMouseClicked
+        
+    }//GEN-LAST:event_tableInventarioMouseClicked
+
+    private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
+        
+    }//GEN-LAST:event_jMenuItem1MouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // agregará una venta por cada producto seleccionado
+        int cantidad = Integer.parseInt(JOptionPane.showInputDialog("ingrese la cantidad"));
+        
+        //producto.vender(cantidad, )
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     private boolean verificar_presentacion()
     {
         if(jTextField7.getText().length() == 0)
@@ -1329,6 +1371,8 @@ public boolean maximizado = false;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1336,6 +1380,7 @@ public boolean maximizado = false;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
