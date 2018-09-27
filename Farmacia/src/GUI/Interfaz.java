@@ -1286,9 +1286,14 @@ public boolean maximizado = false;
         {
             Date fecha = new Date();
             String fecha_v = (fecha.getYear() + 1900) + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate();
+            boolean hecho = false;
             producto.Start_Transaction();
-            bitacora.sbGrabaBitacora("Se inició una transacción", fecha_v, fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
-            boolean hecho = producto.vender(cantidad, nombre);
+            if(JOptionPane.showConfirmDialog(null, "¿Quiere confirmar la venta?") == JOptionPane.OK_OPTION)
+            {
+               bitacora.sbGrabaBitacora("Se inició una transacción", fecha_v, fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
+               hecho = producto.vender(cantidad, nombre);
+            }
+            else hecho = false;
             producto.Commit_Rollback(hecho);
             if(hecho == true)
             {
@@ -1304,6 +1309,18 @@ public boolean maximizado = false;
                     5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                     RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             }
+            try 
+            {
+                Conexion con = new Conexion();
+                String path = "src\\bitacora\\transacciones.jasper";
+                String path2 = "src\\bitacora\\transacciones.pdf";
+                JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
+                JasperPrint jp = JasperFillManager.fillReport(jr, null, con.getConnection());
+                JasperExportManager.exportReportToPdfFile(jp, path2);           
+            } catch (JRException ex) {
+                System.out.println(ex.getMessage());
+                new rojerusan.RSNotifyFade("¡ERROR!", "No se puede imprimir" , Color.white, Color.black, Color.black, SOMEBITS, RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.ERROR).setVisible(true);
+            }
         }
         else
         {
@@ -1311,18 +1328,7 @@ public boolean maximizado = false;
                 5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                 RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
         }
-                try {
-            
-            Conexion con = new Conexion();
-            String path = "src\\bitacora\\transacciones.jasper";
-            String path2 = "src\\bitacora\\transacciones.pdf";
-            JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
-            JasperPrint jp = JasperFillManager.fillReport(jr, null, con.getConnection());
-            JasperExportManager.exportReportToPdfFile(jp, path2);           
-        } catch (JRException ex) {
-            System.out.println(ex.getMessage());
-             new rojerusan.RSNotifyFade("¡ERROR!", "No se puede imprimir" , Color.white, Color.black, Color.black, SOMEBITS, RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.ERROR).setVisible(true);
-        }
+                
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private boolean verificar_presentacion()
