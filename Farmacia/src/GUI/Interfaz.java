@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Clases.Conexion;
 import Clases.Producto;
 import Clases.sustancias;
 import bitacorajl.BitacoraJL;
@@ -25,6 +26,7 @@ import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
+import static java.awt.image.ImageObserver.SOMEBITS;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,8 +43,15 @@ import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.TableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import rojeru_san.componentes.RSDateChooser;
 import rojerusan.RSNotifyAnimated;
+import rojerusan.RSNotifyFade;
 import rojerusan.RSPanelsSlider;
 
 /**
@@ -1025,6 +1034,7 @@ public boolean maximizado = false;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+      
         System.exit(0);
     }//GEN-LAST:event_jButton1MouseClicked
 
