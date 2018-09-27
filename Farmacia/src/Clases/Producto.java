@@ -85,7 +85,7 @@ public class Producto {
             {
                 registros[0] = rs.getString("P.nombre_producto");
                 registros[1] = rs.getString("P.descripcion");
-                registros[2] = "Q." + rs.getString("sum(L.cantidad)");
+                registros[2] = rs.getString("sum(L.cantidad)");
                 registros[3] = "Q." + rs.getString("L.precio");
                 modelo.addRow(registros);
             }
@@ -119,7 +119,7 @@ public class Producto {
             {
                 registros[0] = rs.getString("P.nombre_producto");
                 registros[1] = rs.getString("P.descripcion");
-                registros[2] = "Q." + rs.getString("sum(L.cantidad)");
+                registros[2] = rs.getString("sum(L.cantidad)");
                 registros[3] = "Q." + rs.getString("L.precio");
                 modelo.addRow(registros);
             }
