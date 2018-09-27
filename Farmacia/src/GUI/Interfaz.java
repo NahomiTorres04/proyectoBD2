@@ -114,6 +114,7 @@ public boolean maximizado = false;
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel35 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -125,9 +126,9 @@ public boolean maximizado = false;
         jPanel6 = new javax.swing.JPanel();
         rSPanelsSlider1 = new rojerusan.RSPanelsSlider();
         pprincipal = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         pprodylot = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         rSPanelsSlider2 = new rojerusan.RSPanelsSlider();
@@ -222,7 +223,6 @@ public boolean maximizado = false;
         pinfoprod = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
-        txtNombrePnlInfoProd = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         rSMaterialButtonRectangle44 = new rojerusan.RSMaterialButtonRectangle();
@@ -318,12 +318,17 @@ public boolean maximizado = false;
             }
         });
 
+        jLabel35.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 18)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("      Biofarm SGBD");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
@@ -333,9 +338,10 @@ public boolean maximizado = false;
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel35, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -410,11 +416,11 @@ public boolean maximizado = false;
         pprincipal.setBackground(new java.awt.Color(255, 255, 255));
         pprincipal.setName("pprincipal"); // NOI18N
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/WhatsApp Image 2018-09-26 at 10.02.18 PM.jpeg"))); // NOI18N
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/animasi-dokter-png-1.png"))); // NOI18N
 
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bienv.png"))); // NOI18N
 
-        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/animasi-dokter-png-1.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/WhatsApp Image 2018-09-26 at 10.02.18 PM.jpeg"))); // NOI18N
 
         javax.swing.GroupLayout pprincipalLayout = new javax.swing.GroupLayout(pprincipal);
         pprincipal.setLayout(pprincipalLayout);
@@ -438,7 +444,7 @@ public boolean maximizado = false;
         );
         pprincipalLayout.setVerticalGroup(
             pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 736, Short.MAX_VALUE)
+            .addGap(0, 746, Short.MAX_VALUE)
             .addGroup(pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pprincipalLayout.createSequentialGroup()
                     .addGap(8, 8, 8)
@@ -487,6 +493,7 @@ public boolean maximizado = false;
         ppresentacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextArea4.setColumns(20);
+        jTextArea4.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
         jTextArea4.setRows(5);
         jScrollPane4.setViewportView(jTextArea4);
 
@@ -750,6 +757,7 @@ public boolean maximizado = false;
         pproducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextArea3.setColumns(20);
+        jTextArea3.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
         jTextArea3.setRows(5);
         jScrollPane3.setViewportView(jTextArea3);
 
@@ -824,13 +832,11 @@ public boolean maximizado = false;
         pinfoprod.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
         pinfoprod.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 390, 110));
-
-        txtNombrePnlInfoProd.setFont(new java.awt.Font("Monospaced", 0, 13)); // NOI18N
-        pinfoprod.add(txtNombrePnlInfoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 170, 40));
 
         jLabel26.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel26.setText("Nombre del producto");
@@ -867,6 +873,7 @@ public boolean maximizado = false;
         pinfoprod1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -1156,8 +1163,7 @@ public boolean maximizado = false;
     private void rSMaterialButtonRectangle9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle9MouseClicked
         //ingresar producto
         if(verificar_ingresar_producto()) {
-            txtNombrePnlInfoProd.setEditable(false);
-            txtNombrePnlInfoProd.setText(jTextField1.getText());
+            jLabel26.setText(jTextField1.getText());
             jTextArea2.setEditable(false);
             jTextArea2.setText(jTextArea3.getText());
             rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
@@ -1507,6 +1513,7 @@ public boolean maximizado = false;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1614,7 +1621,6 @@ public boolean maximizado = false;
     private rojerusan.RSPanelsSlider rSPanelsSlider3;
     private javax.swing.JScrollPane scrollgai1;
     private rojerusan.RSTableMetro tableInventario;
-    private javax.swing.JTextField txtNombrePnlInfoProd;
     private javax.swing.JTextField txtbnprod;
     // End of variables declaration//GEN-END:variables
 }
