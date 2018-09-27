@@ -11,9 +11,11 @@ import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Paint;
 import java.awt.RenderingHints;
 import java.awt.Shape;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
@@ -37,6 +39,8 @@ public class login extends javax.swing.JFrame {
     public login() 
         {
         initComponents();
+        Image ico = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/logo.png"));
+        this.setIconImage(ico);
         this.setLocationRelativeTo(null);
         AWTUtilities.setWindowOpaque(this, false);
         cmbusuario.setBackground(new Color(0,0,0,0));

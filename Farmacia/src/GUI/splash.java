@@ -9,7 +9,9 @@ import com.sun.awt.AWTUtilities;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import javax.swing.JComponent;
 import javax.swing.plaf.basic.BasicProgressBarUI;
 
@@ -27,6 +29,8 @@ public class splash extends javax.swing.JFrame {
     
     public splash() {
         initComponents();
+        Image ico = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/logo.png"));
+        this.setIconImage(ico);
         Progreso.setBackground(new Color (0,0,0,0));
         this.setLocationRelativeTo(null);
         Progreso.setUI(new BasicProgressBarUI(){
