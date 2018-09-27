@@ -44,6 +44,7 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.TableModel;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
@@ -75,8 +76,8 @@ public boolean maximizado = false;
         String descripcion_producto = "";
         initComponents();
         this.setLocationRelativeTo(null);
-    //Image ico = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/icono.png"));
-    //this.setIconImage(ico);
+        Image ico = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/logo.png"));
+        this.setIconImage(ico);
         txtbnprod.setBackground(new Color(0,0,0,0));
         cmbbusquedas.setBackground(new Color(0,0,0,0));
         cmbprod.setBackground(new Color(0,0,0,0));
@@ -124,10 +125,15 @@ public boolean maximizado = false;
         jPanel6 = new javax.swing.JPanel();
         rSPanelsSlider1 = new rojerusan.RSPanelsSlider();
         pprincipal = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
         pprodylot = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         rSPanelsSlider2 = new rojerusan.RSPanelsSlider();
         pvaciors2 = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
+        rSFotoCircle1 = new rojerusan.RSFotoCircle();
         rSMaterialButtonRectangle24 = new rojerusan.RSMaterialButtonRectangle();
         ppresentacion = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -216,6 +222,7 @@ public boolean maximizado = false;
         pinfoprod = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
+        txtNombrePnlInfoProd = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         rSMaterialButtonRectangle44 = new rojerusan.RSMaterialButtonRectangle();
@@ -403,15 +410,49 @@ public boolean maximizado = false;
         pprincipal.setBackground(new java.awt.Color(255, 255, 255));
         pprincipal.setName("pprincipal"); // NOI18N
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/WhatsApp Image 2018-09-26 at 10.02.18 PM.jpeg"))); // NOI18N
+
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bienv.png"))); // NOI18N
+
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/animasi-dokter-png-1.png"))); // NOI18N
+
         javax.swing.GroupLayout pprincipalLayout = new javax.swing.GroupLayout(pprincipal);
         pprincipal.setLayout(pprincipalLayout);
         pprincipalLayout.setHorizontalGroup(
             pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1029, Short.MAX_VALUE)
+            .addGroup(pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pprincipalLayout.createSequentialGroup()
+                    .addGap(8, 8, 8)
+                    .addGroup(pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pprincipalLayout.createSequentialGroup()
+                            .addGap(590, 590, 590)
+                            .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(102, 102, 102))
+                        .addGroup(pprincipalLayout.createSequentialGroup()
+                            .addGap(30, 30, 30)
+                            .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+                            .addGap(402, 402, 402))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGap(9, 9, 9)))
         );
         pprincipalLayout.setVerticalGroup(
             pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 736, Short.MAX_VALUE)
+            .addGroup(pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pprincipalLayout.createSequentialGroup()
+                    .addGap(8, 8, 8)
+                    .addGroup(pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pprincipalLayout.createSequentialGroup()
+                            .addGap(150, 150, 150)
+                            .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(180, 180, 180))
+                        .addGroup(pprincipalLayout.createSequentialGroup()
+                            .addGap(27, 27, 27)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(11, 11, 11)))
+                    .addGap(8, 8, 8)))
         );
 
         rSPanelsSlider1.add(pprincipal, "card4");
@@ -425,6 +466,16 @@ public boolean maximizado = false;
         pvaciors2.setBackground(new java.awt.Color(255, 255, 255));
         pvaciors2.setName("pvaciors2"); // NOI18N
         pvaciors2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo (1).png"))); // NOI18N
+        pvaciors2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 110, 450, 480));
+
+        rSFotoCircle1.setColorBorde(new java.awt.Color(255, 255, 255));
+        rSFotoCircle1.setColorBordePopu(new java.awt.Color(255, 255, 255));
+        rSFotoCircle1.setColorButtonOptions(new java.awt.Color(33, 40, 105));
+        rSFotoCircle1.setColorButtonOptionsHover(new java.awt.Color(255, 255, 255));
+        rSFotoCircle1.setColorTextButtonsPopu(new java.awt.Color(255, 255, 255));
+        pvaciors2.add(rSFotoCircle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 450, 440));
 
         rSMaterialButtonRectangle24.setBackground(new java.awt.Color(33, 40, 105));
         pvaciors2.add(rSMaterialButtonRectangle24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 490, 600));
@@ -778,9 +829,12 @@ public boolean maximizado = false;
 
         pinfoprod.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 390, 110));
 
+        txtNombrePnlInfoProd.setFont(new java.awt.Font("Monospaced", 0, 13)); // NOI18N
+        pinfoprod.add(txtNombrePnlInfoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 170, 40));
+
         jLabel26.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel26.setText("Nombre del producto");
-        pinfoprod.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 390, 40));
+        pinfoprod.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 230, 40));
 
         jLabel28.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel28.setText("Nombre:");
@@ -950,7 +1004,7 @@ public boolean maximizado = false;
             ptablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ptablaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollgai1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
+                .addComponent(scrollgai1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 36)); // NOI18N
@@ -1038,6 +1092,20 @@ public boolean maximizado = false;
         System.exit(0);
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void limpiarCampos(){
+        jTextField1.setText("");
+        jTextArea3.setText("");
+        jTextField7.setText("");
+        jTextArea4.setText("");
+        jTextField8.setText("");
+        jTextField9.setText("");
+        jTextField10.setText("");
+        jTextField11.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+        jTextField3.setText("");
+    }
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_jButton3MouseClicked
@@ -1088,6 +1156,10 @@ public boolean maximizado = false;
     private void rSMaterialButtonRectangle9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle9MouseClicked
         //ingresar producto
         if(verificar_ingresar_producto()) {
+            txtNombrePnlInfoProd.setEditable(false);
+            txtNombrePnlInfoProd.setText(jTextField1.getText());
+            jTextArea2.setEditable(false);
+            jTextArea2.setText(jTextArea3.getText());
             rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
             rSPanelsSlider2.setPanelSlider((int) 1.2, ppresentacion, RSPanelsSlider.DIRECT.LEFT);
         }
@@ -1137,14 +1209,19 @@ public boolean maximizado = false;
             rSPanelsSlider1.setPanelSlider( (int) 1.2,pprincipal, RSPanelsSlider.DIRECT.LEFT);
             rSPanelsSlider3.setPanelSlider( (int) 1.2,pproducto, RSPanelsSlider.DIRECT.LEFT);
             rSPanelsSlider2.setPanelSlider( (int) 1.2,pvaciors2, RSPanelsSlider.DIRECT.LEFT);
-            producto.insertarProducto(jTextField1.getText(), jTextArea3.getText(), jTextField7.getText(), 
+            if(producto.insertarProducto(jTextField1.getText(), jTextArea3.getText(), jTextField7.getText(), 
                 jTextArea4.getText(), Integer.parseInt(jTextField4.getText()), getFecha(rSDateChooser1), 
                 Integer.parseInt(jTextField5.getText()), Float.parseFloat(jTextField6.getText()), 
-                Float.parseFloat(jTextField3.getText()));
+                Float.parseFloat(jTextField3.getText()))){
+                new rojerusan.RSNotifyAnimated("¡ÉXITO!", "Ingreso correcto",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.SUCCESS).setVisible(true);
+            }
             for(byte i=0; i<sustancia.size(); i++)
             {
                 producto.insertarSustancias(sustancia.get(i).getSustancia());
             }        
+            limpiarCampos();
         }
     }//GEN-LAST:event_rSMaterialButtonRectangle15MouseClicked
 
@@ -1241,6 +1318,18 @@ public boolean maximizado = false;
             new rojerusan.RSNotifyAnimated("¡ERROR!", "No hay suficiente producto",
                 5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
                 RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+        }
+                try {
+            
+            Conexion con = new Conexion();
+            String path = "src\\bitacora\\transacciones.jasper";
+            String path2 = "src\\bitacora\\transacciones.pdf";
+            JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, con.getConnection());
+            JasperExportManager.exportReportToPdfFile(jp, path2);           
+        } catch (JRException ex) {
+            System.out.println(ex.getMessage());
+             new rojerusan.RSNotifyFade("¡ERROR!", "No se puede imprimir" , Color.white, Color.black, Color.black, SOMEBITS, RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.ERROR).setVisible(true);
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -1390,6 +1479,7 @@ public boolean maximizado = false;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1412,8 +1502,11 @@ public boolean maximizado = false;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1463,6 +1556,7 @@ public boolean maximizado = false;
     private javax.swing.JPanel ptabla;
     private javax.swing.JPanel pvaciors2;
     private rojeru_san.componentes.RSDateChooser rSDateChooser1;
+    private rojerusan.RSFotoCircle rSFotoCircle1;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle1;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle10;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle11;
@@ -1520,6 +1614,7 @@ public boolean maximizado = false;
     private rojerusan.RSPanelsSlider rSPanelsSlider3;
     private javax.swing.JScrollPane scrollgai1;
     private rojerusan.RSTableMetro tableInventario;
+    private javax.swing.JTextField txtNombrePnlInfoProd;
     private javax.swing.JTextField txtbnprod;
     // End of variables declaration//GEN-END:variables
 }

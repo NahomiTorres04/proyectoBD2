@@ -24,17 +24,13 @@
 	</background>
 	<title>
 		<band height="70" splitType="Stretch">
-			<image>
-				<reportElement x="-20" y="0" width="595" height="64" uuid="db13de43-1a9a-49f2-af44-d921f07f3327"/>
-				<imageExpression><![CDATA["wood.jpg"]]></imageExpression>
-			</image>
 			<staticText>
-				<reportElement style="Title" x="0" y="5" width="391" height="33" uuid="3a487a08-cef9-481b-a331-a9cacd1cf8b4"/>
+				<reportElement style="Title" x="0" y="5" width="391" height="33" forecolor="#000000" uuid="3a487a08-cef9-481b-a331-a9cacd1cf8b4"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Bitacora de Transacciones]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="SubTitle" x="63" y="39" width="171" height="22" forecolor="#FFFFFF" uuid="754b1364-dadf-4e14-a902-abe26e188e4e"/>
+				<reportElement style="SubTitle" x="63" y="39" width="171" height="22" forecolor="#000000" backcolor="#000000" uuid="754b1364-dadf-4e14-a902-abe26e188e4e"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Farmacia Biofarm]]></text>
 			</staticText>
