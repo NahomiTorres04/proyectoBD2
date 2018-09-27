@@ -210,14 +210,10 @@ public boolean maximizado = false;
         rSMaterialButtonRectangle3 = new rojerusan.RSMaterialButtonRectangle();
         jLabel6 = new javax.swing.JLabel();
         rSMaterialButtonRectangle4 = new rojerusan.RSMaterialButtonRectangle();
-        jTextField2 = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        rSMaterialButtonRectangle1 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle8 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle9 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle21 = new rojerusan.RSMaterialButtonRectangle();
-        rSMaterialButtonRectangle22 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle23 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle7 = new rojerusan.RSMaterialButtonRectangle();
         pinfoprod = new javax.swing.JPanel();
@@ -761,7 +757,7 @@ public boolean maximizado = false;
         jTextArea3.setRows(5);
         jScrollPane3.setViewportView(jTextArea3);
 
-        pproducto.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 390, 110));
+        pproducto.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 390, 240));
 
         jLabel10.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 36)); // NOI18N
         jLabel10.setText("INGRESAR PRODUCTO:");
@@ -782,18 +778,8 @@ public boolean maximizado = false;
         rSMaterialButtonRectangle4.setBackground(new java.awt.Color(255, 255, 255));
         pproducto.add(rSMaterialButtonRectangle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 170, 60));
 
-        jTextField2.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
-        pproducto.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 390, 40));
-
         jTextField1.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 22)); // NOI18N
         pproducto.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 390, 40));
-
-        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
-        jLabel5.setText("Lote actual:");
-        pproducto.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 120, -1));
-
-        rSMaterialButtonRectangle1.setBackground(new java.awt.Color(255, 255, 255));
-        pproducto.add(rSMaterialButtonRectangle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 170, 60));
 
         rSMaterialButtonRectangle8.setBackground(new java.awt.Color(84, 159, 251));
         rSMaterialButtonRectangle8.setEnabled(false);
@@ -814,10 +800,7 @@ public boolean maximizado = false;
         pproducto.add(rSMaterialButtonRectangle9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 640, -1, -1));
 
         rSMaterialButtonRectangle21.setBackground(new java.awt.Color(33, 40, 105));
-        pproducto.add(rSMaterialButtonRectangle21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 430, 130));
-
-        rSMaterialButtonRectangle22.setBackground(new java.awt.Color(33, 40, 105));
-        pproducto.add(rSMaterialButtonRectangle22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, 430, 60));
+        pproducto.add(rSMaterialButtonRectangle21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 430, 260));
 
         rSMaterialButtonRectangle23.setBackground(new java.awt.Color(33, 40, 105));
         pproducto.add(rSMaterialButtonRectangle23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 430, 60));
@@ -1515,7 +1498,6 @@ public boolean maximizado = false;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1541,7 +1523,6 @@ public boolean maximizado = false;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
@@ -1564,7 +1545,6 @@ public boolean maximizado = false;
     private javax.swing.JPanel pvaciors2;
     private rojeru_san.componentes.RSDateChooser rSDateChooser1;
     private rojerusan.RSFotoCircle rSFotoCircle1;
-    private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle1;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle10;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle11;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle12;
@@ -1578,7 +1558,6 @@ public boolean maximizado = false;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle2;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle20;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle21;
-    private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle22;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle23;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle24;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle25;
