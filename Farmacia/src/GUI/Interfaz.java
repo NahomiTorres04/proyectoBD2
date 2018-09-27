@@ -216,6 +216,7 @@ public boolean maximizado = false;
         pinfoprod = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
+        txtNombrePnlInfoProd = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         rSMaterialButtonRectangle44 = new rojerusan.RSMaterialButtonRectangle();
@@ -778,9 +779,12 @@ public boolean maximizado = false;
 
         pinfoprod.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 390, 110));
 
+        txtNombrePnlInfoProd.setFont(new java.awt.Font("Monospaced", 0, 13)); // NOI18N
+        pinfoprod.add(txtNombrePnlInfoProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 170, 40));
+
         jLabel26.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel26.setText("Nombre del producto");
-        pinfoprod.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 390, 40));
+        pinfoprod.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 230, 40));
 
         jLabel28.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 24)); // NOI18N
         jLabel28.setText("Nombre:");
@@ -950,7 +954,7 @@ public boolean maximizado = false;
             ptablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ptablaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollgai1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
+                .addComponent(scrollgai1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 36)); // NOI18N
@@ -1102,6 +1106,10 @@ public boolean maximizado = false;
     private void rSMaterialButtonRectangle9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle9MouseClicked
         //ingresar producto
         if(verificar_ingresar_producto()) {
+            txtNombrePnlInfoProd.setEditable(false);
+            txtNombrePnlInfoProd.setText(jTextField1.getText());
+            jTextArea2.setEditable(false);
+            jTextArea2.setText(jTextArea3.getText());
             rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
             rSPanelsSlider2.setPanelSlider((int) 1.2, ppresentacion, RSPanelsSlider.DIRECT.LEFT);
         }
@@ -1539,6 +1547,7 @@ public boolean maximizado = false;
     private rojerusan.RSPanelsSlider rSPanelsSlider3;
     private javax.swing.JScrollPane scrollgai1;
     private rojerusan.RSTableMetro tableInventario;
+    private javax.swing.JTextField txtNombrePnlInfoProd;
     private javax.swing.JTextField txtbnprod;
     // End of variables declaration//GEN-END:variables
 }
