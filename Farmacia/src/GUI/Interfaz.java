@@ -6,6 +6,7 @@
 package GUI;
 
 import Clases.Conexion;
+import Clases.Lote;
 import Clases.Producto;
 import Clases.sustancias;
 import bitacorajl.BitacoraJL;
@@ -72,6 +73,7 @@ public boolean maximizado = false;
         producto = new Producto();
         sustancia = new ArrayList<>();
         bitacora = new BitacoraJL();
+        lote = new Lote();
         String nombre_producto = "";
         String descripcion_producto = "";
         initComponents();
@@ -1141,6 +1143,7 @@ public boolean maximizado = false;
         rSPanelsSlider3.setPanelSlider( (int) 1.2,pproducto, RSPanelsSlider.DIRECT.LEFT);
         rSPanelsSlider2.setPanelSlider( (int) 1.2,pvaciors2, RSPanelsSlider.DIRECT.LEFT);
         jButton2.setEnabled(false);
+        jTextField4.setText(lote.getMaxNo() + "");
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void rSMaterialButtonRectangle9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle9MouseClicked
@@ -1458,6 +1461,7 @@ public boolean maximizado = false;
     private final SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
     private final Producto producto;
     private final BitacoraJL bitacora;
+    private final Lote lote;
     private ArrayList<sustancias> sustancia;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbbusquedas;

@@ -15,8 +15,8 @@ BEGIN
     SELECT MAX(id) INTO vid_producto FROM producto;
     SELECT MAX(id) INTO vid_presentacion FROM presentacion;
     
-    INSERT INTO detalle_presentacion(presentacion_id, producto_id, presentacion) VALUES(vid_producto, 
-			vid_presentacion, vdescrip_presentacion);
+    INSERT INTO detalle_presentacion(presentacion_id, producto_id, presentacion) VALUES(vid_presentacion, 
+			vid_producto, vdescrip_presentacion);
             
 	INSERT INTO lote(no_lote, f_caducidad, cantidad, costo, precio, producto_id) VALUES(vno_lote, 
 			vfecha_caducidad, vcantidad, vcosto, vprecio, vid_producto);   
