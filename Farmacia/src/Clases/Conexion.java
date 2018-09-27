@@ -21,6 +21,7 @@ public class Conexion {
     private String nombreBD = "bd_proyectobd2";
     private String usuario = "root";
     private String password = "";
+    //private String url = "jdbc:mysql://192.168.43.242:3306/" + nombreBD + "?autoReconnect=true&useSSL=false"; 
     private String url = "jdbc:mysql://localhost:3306/" + nombreBD + "?autoReconnect=true&useSSL=false"; 
 //    private String url = "jdbc:mysql://localhost:3308/" + nombreBD + "?autoReconnect=true&useSSL=false";
     private Connection con = null;

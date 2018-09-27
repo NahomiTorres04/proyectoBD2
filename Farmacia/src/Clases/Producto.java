@@ -132,7 +132,7 @@ public class Producto {
     
     public void Start_Transaction() {
         try {
-            String query = "Start Transaction;";
+            String query = "begin;";
             PreparedStatement pst = con.prepareStatement(query);
             pst.executeQuery();
         } catch (SQLException ex) {
