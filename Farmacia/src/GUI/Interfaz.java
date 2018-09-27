@@ -1038,6 +1038,20 @@ public boolean maximizado = false;
         System.exit(0);
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void limpiarCampos(){
+        jTextField1.setText("");
+        jTextArea3.setText("");
+        jTextField7.setText("");
+        jTextArea4.setText("");
+        jTextField8.setText("");
+        jTextField9.setText("");
+        jTextField10.setText("");
+        jTextField11.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+        jTextField3.setText("");
+    }
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_jButton3MouseClicked
@@ -1137,14 +1151,19 @@ public boolean maximizado = false;
             rSPanelsSlider1.setPanelSlider( (int) 1.2,pprincipal, RSPanelsSlider.DIRECT.LEFT);
             rSPanelsSlider3.setPanelSlider( (int) 1.2,pproducto, RSPanelsSlider.DIRECT.LEFT);
             rSPanelsSlider2.setPanelSlider( (int) 1.2,pvaciors2, RSPanelsSlider.DIRECT.LEFT);
-            producto.insertarProducto(jTextField1.getText(), jTextArea3.getText(), jTextField7.getText(), 
+            if(producto.insertarProducto(jTextField1.getText(), jTextArea3.getText(), jTextField7.getText(), 
                 jTextArea4.getText(), Integer.parseInt(jTextField4.getText()), getFecha(rSDateChooser1), 
                 Integer.parseInt(jTextField5.getText()), Float.parseFloat(jTextField6.getText()), 
-                Float.parseFloat(jTextField3.getText()));
+                Float.parseFloat(jTextField3.getText()))){
+                new rojerusan.RSNotifyAnimated("¡ÉXITO!", "Ingreso correcto",
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.SUCCESS).setVisible(true);
+            }
             for(byte i=0; i<sustancia.size(); i++)
             {
                 producto.insertarSustancias(sustancia.get(i).getSustancia());
             }        
+            limpiarCampos();
         }
     }//GEN-LAST:event_rSMaterialButtonRectangle15MouseClicked
 
