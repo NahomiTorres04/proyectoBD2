@@ -77,7 +77,7 @@ public class Producto {
             }
             String[] registros = new String[4];
             String sql = "select P.nombre_producto, P.descripcion, sum(L.cantidad), L.precio from producto P inner join lote L on P.id = L.producto_id"
-                    + " where P.nombre_producto LIKE '%" + nombre + "%';";
+                    + " where P.nombre_producto LIKE '%" + nombre + "%' group by P.nombre_producto;";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -216,5 +216,23 @@ public class Producto {
             Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+    public String getPrecio(String nombre)
+    {
+        String precio = "";
+        try {
+            String sql = "select L.precio from producto P inner join lote L on P.id ="
+                    + " L.producto_id where P.nombre_producto = '" + nombre + "';";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next())
+            {
+                precio = rs.getString("L.precio");
+                return precio;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }

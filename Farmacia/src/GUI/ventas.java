@@ -5,9 +5,11 @@
  */
 package GUI;
 
+import Clases.Producto;
 import com.sun.awt.AWTUtilities;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,11 +21,21 @@ int y =0;
     /**
      * Creates new form ventas
      */
-    public ventas() {
+    public ventas(String[] nombres, int[] cantidades) {
         initComponents();
         Shape forma = new RoundRectangle2D.Double(0,0,this.getBounds().width, this.getBounds().height,35,35);
         AWTUtilities.setWindowShape(this, forma);
         this.setLocationRelativeTo(null);
+        productos = nombres;
+        cantidades = cantidades;
+        producto = new Producto();
+        String[] titulos = {"Nombre", "Cantidad", "Precio Unitario"};
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+        for(int i = 0; i < productos.length; i++)
+        {
+            modelo.addRow(new Object[] {productos[i], cantidades[i], producto.getPrecio(productos[i])});
+        }
+        tableInventario.setModel(modelo);
     }
 
     /**
@@ -353,11 +365,13 @@ int y =0;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ventas().setVisible(true);
+                //new ventas().setVisible(true);
             }
         });
     }
-
+    private final Producto producto;
+    public String[] productos;
+    public int[] cantidades;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncerrar;
     private javax.swing.JButton btncerrar1;

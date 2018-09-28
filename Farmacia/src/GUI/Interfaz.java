@@ -1278,58 +1278,91 @@ public boolean maximizado = false;
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // agregará una venta por cada producto seleccionado
-////        int cantidad = Integer.parseInt(JOptionPane.showInputDialog("ingrese la cantidad"));
-////        TableModel modelo = tableInventario.getModel();
-////        String nombre = modelo.getValueAt(tableInventario.getSelectedRow(), 0).toString();
-////        int cantidad_actual = Integer.parseInt(modelo.getValueAt(tableInventario.getSelectedRow(), 2).toString());
-////        if(cantidad <= cantidad_actual)
-////        {
-////            Date fecha = new Date();
-////            String fecha_v = (fecha.getYear() + 1900) + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate();
-////            boolean hecho = false;
-////            producto.Start_Transaction();
-////            if(JOptionPane.showConfirmDialog(null, "¿Quiere confirmar la venta?") == JOptionPane.OK_OPTION)
-////            {
-////               bitacora.sbGrabaBitacora("Se inició una transacción", fecha_v, fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
-////               hecho = producto.vender(cantidad, nombre);
-////            }
-////            else hecho = false;
-////            producto.Commit_Rollback(hecho);
-////            if(hecho == true)
-////            {
-////                bitacora.sbGrabaBitacora("Se finalizó la transacción con éxito", fecha_v, fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
-////                new rojerusan.RSNotifyAnimated("¡ÉXITO!", "Venta completa",
-////                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-////                    RSNotifyAnimated.TypeNotify.SUCCESS).setVisible(true);
-////            }
-////            else
-////            {
-////                bitacora.sbGrabaBitacora("Se canceló la transacción", fecha_v, fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
-////                new rojerusan.RSNotifyAnimated("¡ERROR!", "Ha ocurrido un error en el proceso",
-////                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-////                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
-////            }
-////            try 
-////            {
-////                Conexion con = new Conexion();
-////                String path = "src\\bitacora\\transacciones.jasper";
-////                String path2 = "src\\bitacora\\transacciones.pdf";
-////                JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
-////                JasperPrint jp = JasperFillManager.fillReport(jr, null, con.getConnection());
-////                JasperExportManager.exportReportToPdfFile(jp, path2);           
-////            } catch (JRException ex) {
-////                System.out.println(ex.getMessage());
-////                new rojerusan.RSNotifyFade("¡ERROR!", "No se puede imprimir" , Color.white, Color.black, Color.black, SOMEBITS, RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.ERROR).setVisible(true);
-////            }
-////        }
-////        else
-////        {
-////            new rojerusan.RSNotifyAnimated("¡ERROR!", "No hay suficiente producto",
-////                5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-////                RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
-////        }
-                ventas v = new ventas();
-                v.setVisible(true);
+        boolean completo = true;
+        String[] nombres = new String[tableInventario.getSelectedRowCount()];
+        int[] cantidades = new int[tableInventario.getSelectedRowCount()];
+        TableModel modelo = tableInventario.getModel();
+        for(int i = 0; i < tableInventario.getSelectedRowCount(); i++)
+        {
+            try
+            {
+            String cantidads = JOptionPane.showInputDialog("Ingrese la cantidad solicitada de \"" + modelo.getValueAt(i, 0).toString() + "\"");
+            if(!cantidads.isEmpty())
+            {
+                int cantidad = Integer.valueOf(cantidads);
+                cantidades[i] = cantidad;
+                nombres[i] = modelo.getValueAt(i, 0).toString();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "No ingresó un número");
+                completo = false;
+                break;
+            }
+            } catch(NumberFormatException ex)
+            {
+                JOptionPane.showMessageDialog(null, "No ingresó un número");
+                completo = false;
+                break;
+            } catch(NullPointerException punteroNulo)
+            {
+                completo = false;
+                break;
+            }
+        }
+//        String nombre = modelo.getValueAt(tableInventario.getSelectedRow(), 0).toString();
+//        int cantidad_actual = Integer.parseInt(modelo.getValueAt(tableInventario.getSelectedRow(), 2).toString());
+//        if(cantidad <= cantidad_actual)
+//        {
+//            Date fecha = new Date();
+//            String fecha_v = (fecha.getYear() + 1900) + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate();
+//            boolean hecho = false;
+//            producto.Start_Transaction();
+//            if(JOptionPane.showConfirmDialog(null, "¿Quiere confirmar la venta?") == JOptionPane.OK_OPTION)
+//            {
+//               bitacora.sbGrabaBitacora("Se inició una transacción", fecha_v, fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
+//               hecho = producto.vender(cantidad, nombre);
+//            }
+//            else hecho = false;
+//            producto.Commit_Rollback(hecho);
+//            if(hecho == true)
+//            {
+//                bitacora.sbGrabaBitacora("Se finalizó la transacción con éxito", fecha_v, fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
+//                new rojerusan.RSNotifyAnimated("¡ÉXITO!", "Venta completa",
+//                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+//                    RSNotifyAnimated.TypeNotify.SUCCESS).setVisible(true);
+//            }
+//            else
+//            {
+//                bitacora.sbGrabaBitacora("Se canceló la transacción", fecha_v, fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
+//                new rojerusan.RSNotifyAnimated("¡ERROR!", "Ha ocurrido un error en el proceso",
+//                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+//                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+//            }
+//            try 
+//            {
+//                Conexion con = new Conexion();
+//                String path = "src\\bitacora\\transacciones.jasper";
+//                String path2 = "src\\bitacora\\transacciones.pdf";
+//                JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
+//                JasperPrint jp = JasperFillManager.fillReport(jr, null, con.getConnection());
+//                JasperExportManager.exportReportToPdfFile(jp, path2);           
+//            } catch (JRException ex) {
+//                System.out.println(ex.getMessage());
+//                new rojerusan.RSNotifyFade("¡ERROR!", "No se puede imprimir" , Color.white, Color.black, Color.black, SOMEBITS, RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.ERROR).setVisible(true);
+//            }
+//        }
+//        else
+//        {
+//            new rojerusan.RSNotifyAnimated("¡ERROR!", "No hay suficiente producto",
+//                5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+//                RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+//        }
+        if(completo == true)
+        {
+            ventas v = new ventas(nombres, cantidades);
+            v.setVisible(true);
+        }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private boolean verificar_presentacion()
