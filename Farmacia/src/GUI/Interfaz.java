@@ -5,55 +5,22 @@
  */
 package GUI;
 
-import Clases.Conexion;
 import Clases.Lote;
 import Clases.Producto;
 import Clases.sustancias;
 import bitacorajl.BitacoraJL;
-import com.sun.awt.AWTUtilities;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.HeadlessException;
 import java.awt.Image;
-import java.awt.Insets;
-import java.awt.RenderingHints;
-import java.awt.Shape;
 import java.awt.Toolkit;
-import java.awt.geom.RoundRectangle2D;
-import java.awt.image.BufferedImage;
-import static java.awt.image.ImageObserver.SOMEBITS;
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
-import static java.util.Optional.empty;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import static javafx.scene.paint.Color.color;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import javax.swing.table.TableModel;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
 import rojeru_san.componentes.RSDateChooser;
 import rojerusan.RSNotifyAnimated;
-import rojerusan.RSNotifyFade;
 import rojerusan.RSPanelsSlider;
 
 /**
@@ -61,31 +28,32 @@ import rojerusan.RSPanelsSlider;
  * @author Nahomi
  */
 public class Interfaz extends javax.swing.JFrame {
-int ancho = 0;
-int alto = 0;
-int x=0,y=0;
-public boolean maximizado = false;
+
+    int ancho = 0;
+    int alto = 0;
+    int x = 0, y = 0;
+    public boolean maximizado = false;
 
     /**
      * Creates new form Interfaz
      */
     public Interfaz() {
+        v = new ventas();
         producto = new Producto();
         sustancia = new ArrayList<>();
         bitacora = new BitacoraJL();
         lote = new Lote();
-        String nombre_producto = "";
-        String descripcion_producto = "";
         initComponents();
+        v.setProd(producto);
         this.setLocationRelativeTo(null);
         Image ico = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/logo.png"));
         this.setIconImage(ico);
-        txtbnprod.setBackground(new Color(0,0,0,0));
-        cmbbusquedas.setBackground(new Color(0,0,0,0));
-        cmbprod.setBackground(new Color(0,0,0,0));
-        Border  empty;
+        txtbnprod.setBackground(new Color(0, 0, 0, 0));
+        cmbbusquedas.setBackground(new Color(0, 0, 0, 0));
+        cmbprod.setBackground(new Color(0, 0, 0, 0));
+        Border empty;
         empty = BorderFactory.createEmptyBorder(1, 1, 1, 1);
-        final Border compound, compound2, compound3 ;
+        final Border compound, compound2, compound3;
         Color crl = (new Color(216, 236, 245));
         Color crl2 = (new Color(255, 255, 255));
         Color crl3 = (new Color(24, 160, 198));
@@ -93,11 +61,11 @@ public boolean maximizado = false;
         compound2 = BorderFactory.createCompoundBorder(empty, new redondear(crl2));
         compound3 = BorderFactory.createCompoundBorder(empty, new redondear(crl3));
         ptabla.setBorder(compound);
-        pbuscar.setBorder(compound);
+        pbuscar.setBorder(compound2);
         pbuscart.setBorder(compound3);
 
 //        prueba.setBorder(compound);
-     }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1080,11 +1048,11 @@ public boolean maximizado = false;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-      
+
         System.exit(0);
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void limpiarCampos(){
+    private void limpiarCampos() {
         jTextField1.setText("");
         jTextArea3.setText("");
         jTextField7.setText("");
@@ -1103,52 +1071,49 @@ public boolean maximizado = false;
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        if(maximizado == false) 
-        {
+        if (maximizado == false) {
             Interfaz.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
             maximizado = true;
-        }
-        else
-        {
+        } else {
             Interfaz.this.setExtendedState(JFrame.NORMAL);
             maximizado = false;
-        } 
+        }
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
         x = evt.getX();
-        y =evt.getY();
+        y = evt.getY();
     }//GEN-LAST:event_jPanel2MousePressed
 
     private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
-        this.setLocation(this.getLocation().x + evt.getX() - x,this.getLocation().y + evt.getY() -  y);
+        this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
     }//GEN-LAST:event_jPanel2MouseDragged
 
     private void jPanel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MousePressed
         x = evt.getX();
-        y =evt.getY();
+        y = evt.getY();
     }//GEN-LAST:event_jPanel3MousePressed
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
-        this.setLocation(this.getLocation().x + evt.getX() - x,this.getLocation().y + evt.getY() -  y);
+        this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
     }//GEN-LAST:event_jPanel3MouseDragged
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        rSPanelsSlider1.setPanelSlider((int) 1.2,pproductos, RSPanelsSlider.DIRECT.LEFT);
+        rSPanelsSlider1.setPanelSlider((int) 1.2, pproductos, RSPanelsSlider.DIRECT.LEFT);
         jButton2.setEnabled(true);
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        rSPanelsSlider1.setPanelSlider((int) 1.2,pprodylot, RSPanelsSlider.DIRECT.RIGHT);
-        rSPanelsSlider3.setPanelSlider( (int) 1.2,pproducto, RSPanelsSlider.DIRECT.LEFT);
-        rSPanelsSlider2.setPanelSlider( (int) 1.2,pvaciors2, RSPanelsSlider.DIRECT.LEFT);
+        rSPanelsSlider1.setPanelSlider((int) 1.2, pprodylot, RSPanelsSlider.DIRECT.RIGHT);
+        rSPanelsSlider3.setPanelSlider((int) 1.2, pproducto, RSPanelsSlider.DIRECT.LEFT);
+        rSPanelsSlider2.setPanelSlider((int) 1.2, pvaciors2, RSPanelsSlider.DIRECT.LEFT);
         jButton2.setEnabled(false);
         jTextField4.setText(lote.getMaxNo() + "");
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void rSMaterialButtonRectangle9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle9MouseClicked
         //ingresar producto
-        if(verificar_ingresar_producto()) {
+        if (verificar_ingresar_producto()) {
             jLabel26.setText(jTextField1.getText());
             jTextArea2.setEditable(false);
             jTextArea2.setText(jTextArea3.getText());
@@ -1158,37 +1123,33 @@ public boolean maximizado = false;
     }//GEN-LAST:event_rSMaterialButtonRectangle9MouseClicked
 
     private void rSMaterialButtonRectangle2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle2MouseClicked
-        if(verificar_presentacion()){
+        if (verificar_presentacion()) {
             rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
             rSPanelsSlider2.setPanelSlider((int) 1.2, psustancias, RSPanelsSlider.DIRECT.LEFT);
         }
     }//GEN-LAST:event_rSMaterialButtonRectangle2MouseClicked
 
     private void rSMaterialButtonRectangle42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle42MouseClicked
-        if(verificar_sustancias()){
+        if (verificar_sustancias()) {
             rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod, RSPanelsSlider.DIRECT.RIGHT);
             rSPanelsSlider2.setPanelSlider((int) 1.2, pLote, RSPanelsSlider.DIRECT.LEFT);
             byte posicion = -1;
-            if(jTextField8.getText().length() != 0)
-            {
+            if (jTextField8.getText().length() != 0) {
                 sustancia.add(new sustancias());
                 posicion++;
                 sustancia.get(posicion).setSustancia(jTextField8.getText());
             }
-            if(jTextField9.getText().length() != 0)
-            {
+            if (jTextField9.getText().length() != 0) {
                 sustancia.add(new sustancias());
                 posicion++;
                 sustancia.get(posicion).setSustancia(jTextField9.getText());
             }
-            if(jTextField10.getText().length() != 0)
-            {
+            if (jTextField10.getText().length() != 0) {
                 sustancia.add(new sustancias());
                 posicion++;
                 sustancia.get(posicion).setSustancia(jTextField10.getText());
             }
-            if(jTextField11.getText().length() != 0)
-            {
+            if (jTextField11.getText().length() != 0) {
                 sustancia.add(new sustancias());
                 posicion++;
                 sustancia.get(posicion).setSustancia(jTextField11.getText());
@@ -1197,32 +1158,31 @@ public boolean maximizado = false;
     }//GEN-LAST:event_rSMaterialButtonRectangle42MouseClicked
 
     private void rSMaterialButtonRectangle15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle15MouseClicked
-        if(verificar_lote()) {
-            rSPanelsSlider1.setPanelSlider( (int) 1.2,pprincipal, RSPanelsSlider.DIRECT.LEFT);
-            rSPanelsSlider3.setPanelSlider( (int) 1.2,pproducto, RSPanelsSlider.DIRECT.LEFT);
-            rSPanelsSlider2.setPanelSlider( (int) 1.2,pvaciors2, RSPanelsSlider.DIRECT.LEFT);
-            if(producto.insertarProducto(jTextField1.getText(), jTextArea3.getText(), jTextField7.getText(), 
-                jTextArea4.getText(), Integer.parseInt(jTextField4.getText()), getFecha(rSDateChooser1), 
-                Integer.parseInt(jTextField5.getText()), Float.parseFloat(jTextField6.getText()), 
-                Float.parseFloat(jTextField3.getText()))){
+        if (verificar_lote()) {
+            rSPanelsSlider1.setPanelSlider((int) 1.2, pprincipal, RSPanelsSlider.DIRECT.LEFT);
+            rSPanelsSlider3.setPanelSlider((int) 1.2, pproducto, RSPanelsSlider.DIRECT.LEFT);
+            rSPanelsSlider2.setPanelSlider((int) 1.2, pvaciors2, RSPanelsSlider.DIRECT.LEFT);
+            if (producto.insertarProducto(jTextField1.getText(), jTextArea3.getText(), jTextField7.getText(),
+                    jTextArea4.getText(), Integer.parseInt(jTextField4.getText()), getFecha(rSDateChooser1),
+                    Integer.parseInt(jTextField5.getText()), Float.parseFloat(jTextField6.getText()),
+                    Float.parseFloat(jTextField3.getText()))) {
                 new rojerusan.RSNotifyAnimated("¡ÉXITO!", "Ingreso correcto",
-                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-                    RSNotifyAnimated.TypeNotify.SUCCESS).setVisible(true);
+                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                        RSNotifyAnimated.TypeNotify.SUCCESS).setVisible(true);
             }
-            for(byte i=0; i<sustancia.size(); i++)
-            {
+            for (byte i = 0; i < sustancia.size(); i++) {
                 producto.insertarSustancias(sustancia.get(i).getSustancia());
-            }        
+            }
             limpiarCampos();
         }
     }//GEN-LAST:event_rSMaterialButtonRectangle15MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         jButton2.setEnabled(false);
-        rSPanelsSlider3.setPanelSlider( (int) 1.2,pinfoprod1, RSPanelsSlider.DIRECT.LEFT);
-        rSPanelsSlider2.setPanelSlider( (int) 1.2,pLote, RSPanelsSlider.DIRECT.LEFT);
-        rSPanelsSlider1.setPanelSlider( (int) 1.2,pprodylot, RSPanelsSlider.DIRECT.LEFT);
- 
+        rSPanelsSlider3.setPanelSlider((int) 1.2, pinfoprod1, RSPanelsSlider.DIRECT.LEFT);
+        rSPanelsSlider2.setPanelSlider((int) 1.2, pLote, RSPanelsSlider.DIRECT.LEFT);
+        rSPanelsSlider1.setPanelSlider((int) 1.2, pprodylot, RSPanelsSlider.DIRECT.LEFT);
+
     }//GEN-LAST:event_jButton6MouseClicked
 
     public String getFecha(RSDateChooser jd) {
@@ -1232,7 +1192,7 @@ public boolean maximizado = false;
             return null;
         }
     }
-    
+
     private void rSMaterialButtonRectangle15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle15ActionPerformed
 
     }//GEN-LAST:event_rSMaterialButtonRectangle15ActionPerformed
@@ -1251,15 +1211,12 @@ public boolean maximizado = false;
 
     private void txtbnprodKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbnprodKeyReleased
         /**
-         * Se buscará en la base de datos los datos requeridos por la tabla en la tabla productos
-         * en función del parámetro de la lista desplegable
+         * Se buscará en la base de datos los datos requeridos por la tabla en
+         * la tabla productos en función del parámetro de la lista desplegable
          */
-        if(cmbbusquedas.getSelectedItem().toString().equals("Por nombre"))
-        {
+        if (cmbbusquedas.getSelectedItem().toString().equals("Por nombre")) {
             tableInventario.setModel(producto.buscarPorNombre(txtbnprod.getText(), tableInventario));
-        }
-        else if(cmbbusquedas.getSelectedItem().toString().equals("Por sustancia"))
-        {
+        } else if (cmbbusquedas.getSelectedItem().toString().equals("Por sustancia")) {
             tableInventario.setModel(producto.buscarPorSustancia(txtbnprod.getText(), tableInventario));
         }
     }//GEN-LAST:event_txtbnprodKeyReleased
@@ -1269,200 +1226,151 @@ public boolean maximizado = false;
     }//GEN-LAST:event_txtbnprodKeyTyped
 
     private void tableInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableInventarioMouseClicked
-        
+
     }//GEN-LAST:event_tableInventarioMouseClicked
 
     private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
-        
+
     }//GEN-LAST:event_jMenuItem1MouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // agregará una venta por cada producto seleccionado
-        boolean completo = true;
-        String[] nombres = new String[tableInventario.getSelectedRowCount()];
-        int[] cantidades = new int[tableInventario.getSelectedRowCount()];
+        transaccion = v.isTransaccion();
+        Float total = 0f;
+        ArrayList<String> nombres = new ArrayList<>();
+        ArrayList<Integer> cantidades = new ArrayList<>();
+        ArrayList<Float> precio = new ArrayList<>();
         TableModel modelo = tableInventario.getModel();
-        for(int i = 0; i < tableInventario.getSelectedRowCount(); i++)
-        {
-            try
-            {
-            String cantidads = JOptionPane.showInputDialog("Ingrese la cantidad solicitada de \"" + modelo.getValueAt(i, 0).toString() + "\"");
-            if(!cantidads.isEmpty())
-            {
-                int cantidad = Integer.valueOf(cantidads);
-                cantidades[i] = cantidad;
-                nombres[i] = modelo.getValueAt(i, 0).toString();
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "No ingresó un número");
-                completo = false;
-                break;
-            }
-            } catch(NumberFormatException ex)
-            {
-                JOptionPane.showMessageDialog(null, "No ingresó un número");
-                completo = false;
-                break;
-            } catch(NullPointerException punteroNulo)
-            {
-                completo = false;
-                break;
+        int[] seleccionados = tableInventario.getSelectedRows();
+        int cantidad = 0;
+        String cantidadString, precioString;
+        for (int i = 0; i < seleccionados.length; i++) {
+            try {
+                cantidadString = JOptionPane.showInputDialog("Ingrese la cantidad solicitada de \"" + modelo.getValueAt(seleccionados[i], 0).toString() + "\"");
+                if (!cantidadString.isEmpty()) {
+                    cantidad = Integer.valueOf(cantidadString);
+                    if (cantidad > Integer.parseInt((String) modelo.getValueAt(seleccionados[i], 2))) {
+                        JOptionPane.showMessageDialog(null, "No hay producto disponible");
+                    } else {
+                        cantidades.add(cantidad);
+                        nombres.add(modelo.getValueAt(seleccionados[i], 0).toString());
+                        precioString = modelo.getValueAt(seleccionados[i], 3).toString();
+                        precioString = precioString.substring(2, precioString.length());
+                        precio.add(Float.parseFloat(precioString));
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "No ingresó una cantidad");
+                }
+            } catch (NumberFormatException | NullPointerException ex) {
+                JOptionPane.showMessageDialog(null, "No ingresó una cantidad");
             }
         }
-//        String nombre = modelo.getValueAt(tableInventario.getSelectedRow(), 0).toString();
-//        int cantidad_actual = Integer.parseInt(modelo.getValueAt(tableInventario.getSelectedRow(), 2).toString());
-//        if(cantidad <= cantidad_actual)
-//        {
-//            Date fecha = new Date();
-//            String fecha_v = (fecha.getYear() + 1900) + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate();
-//            boolean hecho = false;
-//            producto.Start_Transaction();
-//            if(JOptionPane.showConfirmDialog(null, "¿Quiere confirmar la venta?") == JOptionPane.OK_OPTION)
-//            {
-//               bitacora.sbGrabaBitacora("Se inició una transacción", fecha_v, fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
-//               hecho = producto.vender(cantidad, nombre);
-//            }
-//            else hecho = false;
-//            producto.Commit_Rollback(hecho);
-//            if(hecho == true)
-//            {
-//                bitacora.sbGrabaBitacora("Se finalizó la transacción con éxito", fecha_v, fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
-//                new rojerusan.RSNotifyAnimated("¡ÉXITO!", "Venta completa",
-//                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-//                    RSNotifyAnimated.TypeNotify.SUCCESS).setVisible(true);
-//            }
-//            else
-//            {
-//                bitacora.sbGrabaBitacora("Se canceló la transacción", fecha_v, fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
-//                new rojerusan.RSNotifyAnimated("¡ERROR!", "Ha ocurrido un error en el proceso",
-//                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-//                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
-//            }
-//            try 
-//            {
-//                Conexion con = new Conexion();
-//                String path = "src\\bitacora\\transacciones.jasper";
-//                String path2 = "src\\bitacora\\transacciones.pdf";
-//                JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
-//                JasperPrint jp = JasperFillManager.fillReport(jr, null, con.getConnection());
-//                JasperExportManager.exportReportToPdfFile(jp, path2);           
-//            } catch (JRException ex) {
-//                System.out.println(ex.getMessage());
-//                new rojerusan.RSNotifyFade("¡ERROR!", "No se puede imprimir" , Color.white, Color.black, Color.black, SOMEBITS, RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.ERROR).setVisible(true);
-//            }
-//        }
-//        else
-//        {
-//            new rojerusan.RSNotifyAnimated("¡ERROR!", "No hay suficiente producto",
-//                5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-//                RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
-//        }
-        if(completo == true)
-        {
-            ventas v = new ventas(nombres, cantidades);
+        if (!nombres.isEmpty()) {
+            if (!transaccion) {
+                producto.Start_Transaction();
+                producto.vender();
+            }
+            boolean estado = false;
+            for (int i = 0; i < nombres.size(); i++) {
+                estado = producto.Descontar(cantidades.get(i), nombres.get(i));
+                if (!estado) {
+                    producto.Commit_Rollback(false);
+                    JOptionPane.showMessageDialog(null, "No hay producto disponible");
+                    break;
+                }
+            }
             v.setVisible(true);
+            v.setInfo(nombres, cantidades, precio, total, tableInventario, estado);
+
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private boolean verificar_presentacion()
-    {
-        if(jTextField7.getText().length() == 0)
-        {
+    private boolean verificar_presentacion() {
+        if (jTextField7.getText().length() == 0) {
             new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Nombre aún vacío",
-                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             jTextField7.requestFocus();
             return false;
-        }else if(jTextArea4.getText().length() == 0)
-        {
+        } else if (jTextArea4.getText().length() == 0) {
             new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Presentación aún vacío",
-                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             jTextArea4.requestFocus();
             return false;
+        } else {
+            return true;
         }
-        else
-            return true;    
     }
-    
-    private boolean verificar_sustancias()
-    {
-        if((jTextField8.getText().length() == 0) && (jTextField9.getText().length() == 0)
-                && (jTextField10.getText().length() == 0) && (jTextField11.getText().length() == 0))
-        {
+
+    private boolean verificar_sustancias() {
+        if ((jTextField8.getText().length() == 0) && (jTextField9.getText().length() == 0)
+                && (jTextField10.getText().length() == 0) && (jTextField11.getText().length() == 0)) {
             new rojerusan.RSNotifyAnimated("¡ERROR!", "Ingrese al menos una sustancia",
-                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             jTextField8.requestFocus();
             return false;
-        }
-        else
+        } else {
             return true;
+        }
     }
-    
-    private boolean verificar_lote()
-    {
-        if(jTextField4.getText().length() == 0)
-        {
+
+    private boolean verificar_lote() {
+        if (jTextField4.getText().length() == 0) {
             new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo No Lote aún vacío",
-                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             jTextField4.requestFocus();
             return false;
-            
-        }else if(getFecha(rSDateChooser1).equals(""))
-        {
+
+        } else if (getFecha(rSDateChooser1).equals("")) {
             new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Fecha de caducidad aún vacío",
-                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             rSDateChooser1.requestFocus();
             return false;
-        } else if(jTextField5.getText().length() == 0)
-        {
+        } else if (jTextField5.getText().length() == 0) {
             new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Cantidad aún vacío",
-                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             jTextField5.requestFocus();
             return false;
-        }else if(jTextField6.getText().length() == 0)
-        {
+        } else if (jTextField6.getText().length() == 0) {
             new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Costo aún vacío",
-                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             jTextField6.requestFocus();
             return false;
-        }else if(jTextField3.getText().length() == 0)
-        {
+        } else if (jTextField3.getText().length() == 0) {
             new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Precio aún vacío",
-                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             jTextField3.requestFocus();
             return false;
-        }else
+        } else {
             return true;
+        }
     }
-    
-    private boolean verificar_ingresar_producto()
-    {
-        if(jTextField1.getText().length() == 0)
-        {
+
+    private boolean verificar_ingresar_producto() {
+        if (jTextField1.getText().length() == 0) {
             new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Nombre aún vacío",
-                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             jTextField1.requestFocus();
             return false;
-        }else if(jTextArea3.getText().length() == 0)
-        {
+        } else if (jTextArea3.getText().length() == 0) {
             new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Descripción aún vacío",
-                        5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
-                        RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
+                    5, RSNotifyAnimated.PositionNotify.BottomRight, RSNotifyAnimated.AnimationNotify.BottomUp,
+                    RSNotifyAnimated.TypeNotify.ERROR).setVisible(true);
             jTextArea3.requestFocus();
             return false;
-        }
-        else
+        } else {
             return true;
+        }
     }
+
     /**
      * @param args the command line arguments
      */
@@ -1502,6 +1410,8 @@ public boolean maximizado = false;
     private final Producto producto;
     private final BitacoraJL bitacora;
     private final Lote lote;
+    private final ventas v;
+    private boolean transaccion;
     private ArrayList<sustancias> sustancia;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbbusquedas;

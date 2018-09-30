@@ -11,8 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,8 +32,7 @@ public class Producto {
     }
 
     public boolean insertarProducto(String nombre_producto, String descripcion_producto, String nombre_presentacion,
-            String descripcion_presentacion, int no_lote, String fecha, int cantidad, float costo, float precio)
-    {
+            String descripcion_presentacion, int no_lote, String fecha, int cantidad, float costo, float precio) {
         try {
             CallableStatement procedimiento = con.prepareCall("{CALL insertar_producto(?,?,?,?,?,?,?,?,?)}");
             procedimiento.setString(1, nombre_producto);
@@ -53,9 +50,8 @@ public class Producto {
         }
         return true;
     }
-    
-    public boolean insertarSustancias(String sustancia)
-    {
+
+    public boolean insertarSustancias(String sustancia) {
         try {
             CallableStatement procedimiento = con.prepareCall("{CALL insertar_sustancias(?)}");
             procedimiento.setString(1, sustancia);
@@ -65,14 +61,11 @@ public class Producto {
         }
         return true;
     }
-    
-    public DefaultTableModel buscarPorNombre (String nombre, RSTableMetro tabla)
-    {
-        try
-        {
+
+    public DefaultTableModel buscarPorNombre(String nombre, RSTableMetro tabla) {
+        try {
             String[] titulos = new String[4];
-            for (byte i = 0; i < titulos.length; i++)
-            {
+            for (byte i = 0; i < titulos.length; i++) {
                 titulos[i] = tabla.getColumnName(i);
             }
             String[] registros = new String[4];
@@ -81,8 +74,7 @@ public class Producto {
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            while(rs.next())
-            {
+            while (rs.next()) {
                 registros[0] = rs.getString("P.nombre_producto");
                 registros[1] = rs.getString("P.descripcion");
                 registros[2] = rs.getString("sum(L.cantidad)");
@@ -95,14 +87,11 @@ public class Producto {
         }
         return null;
     }
-    
-    public DefaultTableModel buscarPorSustancia (String sustancia, RSTableMetro tabla)
-    {
-        try
-        {
+
+    public DefaultTableModel buscarPorSustancia(String sustancia, RSTableMetro tabla) {
+        try {
             String[] titulos = new String[4];
-            for(byte i = 0; i < titulos.length; i++)
-            {
+            for (byte i = 0; i < titulos.length; i++) {
                 titulos[i] = tabla.getColumnName(i);
             }
             String[] registros = new String[4];
@@ -115,8 +104,7 @@ public class Producto {
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            while(rs.next())
-            {
+            while (rs.next()) {
                 registros[0] = rs.getString("P.nombre_producto");
                 registros[1] = rs.getString("P.descripcion");
                 registros[2] = rs.getString("sum(L.cantidad)");
@@ -129,10 +117,10 @@ public class Producto {
         }
         return null;
     }
-    
+
     public void Start_Transaction() {
         try {
-            String query = "begin;";
+            String query = "BEGIN;";
             PreparedStatement pst = con.prepareStatement(query);
             pst.executeQuery();
         } catch (SQLException ex) {
@@ -149,90 +137,31 @@ public class Producto {
             Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public boolean vender(int cantidad, String nombre)
-    {
-        boolean guardado = false;
-        String id_producto = "";
-        int cantidad_acumulativa = cantidad;
+
+    public boolean Descontar(int cantidad, String nombre) {
         try {
-            String sql = "select id from producto where nombre_producto = '" + nombre + "'";
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while(rs.next())
-            {
-               id_producto = rs.getString("id");
-            }
-            sql = "select id, cantidad, precio from lote where producto_id = " + id_producto + ";";
-            st = con.createStatement();
-            rs = st.executeQuery(sql);
-            while(rs.next() && cantidad_acumulativa > 0)
-            {
-                if(cantidad_acumulativa <= rs.getInt("cantidad"))
-                {
-                    String sql2 = "update lote set cantidad = " + (rs.getInt("cantidad") - cantidad_acumulativa) + " where id = " + rs.getString("id") + ";";
-                    PreparedStatement ps2 = con.prepareStatement(sql2);
-                    int n = ps2.executeUpdate();
-                    guardado = n != 0;
-                    if(guardado == false) return false;
-                    Date fecha = new Date();
-                    String fecha_v = (fecha.getYear() + 1900) + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate();
-                    sql2 = "insert into venta(fecha, total) values('" + fecha_v + "', " + (cantidad*rs.getInt("precio")) + ");" ;
-                    ps2 = con.prepareStatement(sql2);
-                    n = ps2.executeUpdate();
-                    guardado = n != 0;
-                    if(guardado == false) return false;
-                    String id_venta = "";
-                    sql2 = "select max(id) from venta;";
-                    Statement st2 = con.createStatement();
-                    ResultSet rs2 = st2.executeQuery(sql2);
-                    while(rs2.next())
-                    {
-                        id_venta = rs2.getString("max(id)");
-                    }
-                    sql2 = "insert into detalle_venta(venta_id, producto_id, precio, cantidad) values(" + id_venta + ", " + id_producto
-                            + ", " + rs.getInt("precio") + ", " + cantidad + ");";
-                    ps2 = con.prepareStatement(sql2);
-                    n = ps2.executeUpdate();
-                    guardado = n != 0;
-                    if(guardado == false) return false;
-                    break;
-                }
-                else
-                {
-                    if(rs.getInt("cantidad") > 0)
-                    {
-                        cantidad_acumulativa -= rs.getInt("cantidad");
-                        String sql2 = "update lote set cantidad = 0 where id = " + rs.getString("id") + ";";
-                        PreparedStatement ps2 = con.prepareStatement(sql2);
-                        int n = ps2.executeUpdate();
-                        guardado = n != 0;
-                        if(guardado == false) return false;
-                    }
-                }
-            }
-            return guardado;
+            String sql = "SELECT actualizar(?,?);";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, nombre);
+            pst.setInt(2, cantidad);
+            ResultSet rs = pst.executeQuery();
+            rs.next();
+            return rs.getBoolean(1);
+        } catch (SQLException ex) {
+            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+
+    public boolean vender() {
+        try {
+            PreparedStatement ps;
+            String sql = "insert into venta(fecha, total) values(now(), 0);";
+            ps = con.prepareStatement(sql);
+            return ps.executeUpdate() != 0;
         } catch (SQLException ex) {
             Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
-    }
-    public String getPrecio(String nombre)
-    {
-        String precio = "";
-        try {
-            String sql = "select L.precio from producto P inner join lote L on P.id ="
-                    + " L.producto_id where P.nombre_producto = '" + nombre + "';";
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while(rs.next())
-            {
-                precio = rs.getString("L.precio");
-                return precio;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
     }
 }

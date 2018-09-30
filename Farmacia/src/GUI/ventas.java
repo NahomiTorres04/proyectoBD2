@@ -9,33 +9,33 @@ import Clases.Producto;
 import com.sun.awt.AWTUtilities;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import rojerusan.RSTableMetro;
 
 /**
  *
  * @author Nahomi
  */
 public class ventas extends javax.swing.JFrame {
-int x =0;
-int y =0;
+
+    int x = 0;
+    int y = 0;
+
     /**
      * Creates new form ventas
+     *
      */
-    public ventas(String[] nombres, int[] cantidades) {
+    public ventas() {
         initComponents();
-        Shape forma = new RoundRectangle2D.Double(0,0,this.getBounds().width, this.getBounds().height,35,35);
+        transaccion = false;
+        productos = new ArrayList<>();
+        precio = new ArrayList<>();
+        cantidades = new ArrayList<>();
+        Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 35, 35);
         AWTUtilities.setWindowShape(this, forma);
         this.setLocationRelativeTo(null);
-        productos = nombres;
-        cantidades = cantidades;
-        producto = new Producto();
-        String[] titulos = {"Nombre", "Cantidad", "Precio Unitario"};
-        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
-        for(int i = 0; i < productos.length; i++)
-        {
-            modelo.addRow(new Object[] {productos[i], cantidades[i], producto.getPrecio(productos[i])});
-        }
-        tableInventario.setModel(modelo);
     }
 
     /**
@@ -58,11 +58,12 @@ int y =0;
         rSMaterialButtonRectangle5 = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle2 = new rojerusan.RSMaterialButtonRectangle();
         jLabel7 = new javax.swing.JLabel();
-        rSMaterialButtonRectangle6 = new rojerusan.RSMaterialButtonRectangle();
+        btnCancelar = new rojerusan.RSMaterialButtonRectangle();
+        btnVender = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonRectangle3 = new rojerusan.RSMaterialButtonRectangle();
         rSLabelFecha1 = new rojeru_san.RSLabelFecha();
         rSLabelHora1 = new rojeru_san.RSLabelHora();
-        rSMaterialButtonRectangle4 = new rojerusan.RSMaterialButtonRectangle();
+        btnRegresar = new rojerusan.RSMaterialButtonRectangle();
         rSMaterialButtonCircle1 = new rojerusan.RSMaterialButtonCircle();
         btnminimizar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -193,14 +194,23 @@ int y =0;
         jLabel7.setText("Dirección: ");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 140, -1));
 
-        rSMaterialButtonRectangle6.setBackground(new java.awt.Color(0, 52, 102));
-        rSMaterialButtonRectangle6.setText("Vender");
-        rSMaterialButtonRectangle6.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(0, 52, 102));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSMaterialButtonRectangle6ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(rSMaterialButtonRectangle6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 600, 200, 60));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 600, 200, 60));
+
+        btnVender.setBackground(new java.awt.Color(0, 52, 102));
+        btnVender.setText("Vender");
+        btnVender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVenderActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVender, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 600, 200, 60));
 
         rSMaterialButtonRectangle3.setBackground(new java.awt.Color(186, 240, 255));
         rSMaterialButtonRectangle3.setEnabled(false);
@@ -214,17 +224,16 @@ int y =0;
         rSLabelHora1.setFont(new java.awt.Font("Microsoft JhengHei", 1, 18)); // NOI18N
         jPanel1.add(rSLabelHora1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 630, -1, -1));
 
-        rSMaterialButtonRectangle4.setBackground(new java.awt.Color(0, 52, 102));
-        rSMaterialButtonRectangle4.setText("Regresar");
-        rSMaterialButtonRectangle4.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresar.setBackground(new java.awt.Color(0, 52, 102));
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSMaterialButtonRectangle4ActionPerformed(evt);
+                btnRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(rSMaterialButtonRectangle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 600, 200, 60));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 600, 200, 60));
 
         rSMaterialButtonCircle1.setBackground(new java.awt.Color(255, 255, 255));
-        rSMaterialButtonCircle1.setBorder(null);
         rSMaterialButtonCircle1.setBorderPainted(false);
         rSMaterialButtonCircle1.setFocusPainted(false);
         rSMaterialButtonCircle1.setSelected(true);
@@ -286,8 +295,8 @@ int y =0;
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtnombreRKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreRKeyReleased
-        
-        
+
+
     }//GEN-LAST:event_txtnombreRKeyReleased
 
     private void txtapellidoRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtapellidoRActionPerformed
@@ -295,12 +304,13 @@ int y =0;
     }//GEN-LAST:event_txtapellidoRActionPerformed
 
     private void txtapellidoRKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtapellidoRKeyReleased
-        
+
     }//GEN-LAST:event_txtapellidoRKeyReleased
 
-    private void rSMaterialButtonRectangle4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle4ActionPerformed
-        
-    }//GEN-LAST:event_rSMaterialButtonRectangle4ActionPerformed
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        this.setVisible(false);
+        transaccion = true;
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnminimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnminimizarMouseClicked
         this.setExtendedState(ICONIFIED);
@@ -310,16 +320,25 @@ int y =0;
         this.dispose();
     }//GEN-LAST:event_btncerrarMouseClicked
 
-    private void rSMaterialButtonRectangle6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonRectangle6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rSMaterialButtonRectangle6ActionPerformed
-
+    private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
+        p.Commit_Rollback(true);
+        inicializar();
+    }//GEN-LAST:event_btnVenderActionPerformed
+    private void inicializar() {
+        transaccion = false;
+        productos = new ArrayList<>();
+        precio = new ArrayList<>();
+        cantidades = new ArrayList<>();
+        tabla.setModel(p.buscarPorNombre("", tabla));
+        this.dispose();
+    }
     private void tableInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableInventarioMouseClicked
 
     }//GEN-LAST:event_tableInventarioMouseClicked
 
     private void btncerrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncerrar1MouseClicked
-        this.dispose();
+        p.Commit_Rollback(false);
+        inicializar();
     }//GEN-LAST:event_btncerrar1MouseClicked
 
     private void btnminimizar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnminimizar1MouseClicked
@@ -328,12 +347,17 @@ int y =0;
 
     private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
         x = evt.getX();
-        y =evt.getY();
+        y = evt.getY();
     }//GEN-LAST:event_jLabel8MousePressed
 
     private void jLabel8MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseDragged
-        this.setLocation(this.getLocation().x + evt.getX() - x,this.getLocation().y + evt.getY() -  y);
+        this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
     }//GEN-LAST:event_jLabel8MouseDragged
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        inicializar();
+        p.Commit_Rollback(false);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -365,14 +389,69 @@ int y =0;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new ventas().setVisible(true);
+                // new ventas().setVisible(true);
             }
         });
     }
-    private final Producto producto;
-    public String[] productos;
-    public int[] cantidades;
+
+    public void setInfo(ArrayList<String> productos, ArrayList<Integer> cantidades, ArrayList<Float> precio, float total, RSTableMetro tabla, boolean estado) {
+        this.tabla = tabla;
+        for (int i = 0; i < productos.size(); i++) {
+            this.productos.add(productos.get(i));
+            this.cantidades.add(cantidades.get(i));
+            this.precio.add(precio.get(i));
+        }
+        String[] titulos = {"Nombre", "Cantidad", "Precio Unitario", "Subtotal"};
+        DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+        for (int i = 0; i < this.productos.size(); i++) {
+            modelo.addRow(new Object[]{this.productos.get(i), this.cantidades.get(i), this.precio.get(i), (this.cantidades.get(i) * this.precio.get(i))});
+        }
+        this.tableInventario.setModel(modelo);
+        if (!estado) {
+            JOptionPane.showMessageDialog(null, "Se cancelo la venta");
+            p.Commit_Rollback(estado);
+            inicializar();
+        }
+    }
+
+    public ArrayList<String> getProductos() {
+        if (productos != null) {
+            productos = (productos.isEmpty()) ? null : productos;
+        }
+        return productos;
+    }
+
+    public ArrayList<Integer> getCantidades() {
+        if (cantidades != null) {
+            cantidades = (cantidades.isEmpty()) ? null : cantidades;
+        }
+        return cantidades;
+    }
+
+    public ArrayList<Float> getPrecio() {
+        if (precio != null) {
+            precio = (precio.isEmpty()) ? null : precio;
+        }
+        return precio;
+    }
+
+    public boolean isTransaccion() {
+        return transaccion;
+    }
+
+    public void setProd(Producto p) {
+        this.p = p;
+    }
+    private RSTableMetro tabla;
+    private Producto p;
+    private boolean transaccion;
+    private ArrayList<String> productos;
+    private ArrayList<Integer> cantidades;
+    private ArrayList<Float> precio;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojerusan.RSMaterialButtonRectangle btnCancelar;
+    private rojerusan.RSMaterialButtonRectangle btnRegresar;
+    private rojerusan.RSMaterialButtonRectangle btnVender;
     private javax.swing.JButton btncerrar;
     private javax.swing.JButton btncerrar1;
     private javax.swing.JButton btnminimizar;
@@ -388,9 +467,7 @@ int y =0;
     private rojerusan.RSMaterialButtonCircle rSMaterialButtonCircle1;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle2;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle3;
-    private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle4;
     private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle5;
-    private rojerusan.RSMaterialButtonRectangle rSMaterialButtonRectangle6;
     private javax.swing.JScrollPane scrollgai1;
     private rojerusan.RSTableMetro tableInventario;
     private javax.swing.JTextField txtapellidoR;
