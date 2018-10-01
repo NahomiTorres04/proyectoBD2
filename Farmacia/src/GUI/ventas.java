@@ -5,13 +5,25 @@
  */
 package GUI;
 
+import Clases.Conexion;
 import Clases.Producto;
+import bitacorajl.BitacoraJL;
 import com.sun.awt.AWTUtilities;
+import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import static java.awt.image.ImageObserver.SOMEBITS;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import rojerusan.RSNotifyFade;
 import rojerusan.RSTableMetro;
 
 /**
@@ -29,6 +41,7 @@ public class ventas extends javax.swing.JFrame {
      */
     public ventas() {
         initComponents();
+        bitacora = new BitacoraJL();
         transaccion = false;
         productos = new ArrayList<>();
         precio = new ArrayList<>();
@@ -322,6 +335,21 @@ public class ventas extends javax.swing.JFrame {
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
         p.Commit_Rollback(true);
+        Date fecha = new Date();
+        String fecha_v = (fecha.getYear() + 1900) + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate();
+        bitacora.sbGrabaBitacora("Se finalizó la transacción con éxito", fecha_v, fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
+        try 
+        {
+            Conexion con = new Conexion();
+            String path = "src\\bitacora\\transacciones.jasper";
+            String path2 = "src\\bitacora\\transacciones.pdf";
+            JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, con.getConnection());
+            JasperExportManager.exportReportToPdfFile(jp, path2);           
+        } catch (JRException ex) {
+            System.out.println(ex.getMessage());
+            new rojerusan.RSNotifyFade("¡ERROR!", "No se puede imprimir" , Color.white, Color.black, Color.black, SOMEBITS, RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.ERROR).setVisible(true);
+        }
         inicializar();
     }//GEN-LAST:event_btnVenderActionPerformed
     private void inicializar() {
@@ -338,6 +366,21 @@ public class ventas extends javax.swing.JFrame {
 
     private void btncerrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncerrar1MouseClicked
         p.Commit_Rollback(false);
+        Date fecha = new Date();
+        String fecha_v = (fecha.getYear() + 1900) + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate();
+        bitacora.sbGrabaBitacora("Se canceló la transacción", fecha_v, fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
+        try 
+        {
+            Conexion con = new Conexion();
+            String path = "src\\bitacora\\transacciones.jasper";
+            String path2 = "src\\bitacora\\transacciones.pdf";
+            JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, con.getConnection());
+            JasperExportManager.exportReportToPdfFile(jp, path2);           
+        } catch (JRException ex) {
+            System.out.println(ex.getMessage());
+            new rojerusan.RSNotifyFade("¡ERROR!", "No se puede imprimir" , Color.white, Color.black, Color.black, SOMEBITS, RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.ERROR).setVisible(true);
+        }
         inicializar();
     }//GEN-LAST:event_btncerrar1MouseClicked
 
@@ -357,6 +400,21 @@ public class ventas extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         inicializar();
         p.Commit_Rollback(false);
+        Date fecha = new Date();
+        String fecha_v = (fecha.getYear() + 1900) + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate();
+        bitacora.sbGrabaBitacora("Se canceló la transacción", fecha_v, fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
+        try 
+        {
+            Conexion con = new Conexion();
+            String path = "src\\bitacora\\transacciones.jasper";
+            String path2 = "src\\bitacora\\transacciones.pdf";
+            JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, con.getConnection());
+            JasperExportManager.exportReportToPdfFile(jp, path2);           
+        } catch (JRException ex) {
+            System.out.println(ex.getMessage());
+            new rojerusan.RSNotifyFade("¡ERROR!", "No se puede imprimir" , Color.white, Color.black, Color.black, SOMEBITS, RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.ERROR).setVisible(true);
+        }
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
@@ -442,6 +500,7 @@ public class ventas extends javax.swing.JFrame {
     public void setProd(Producto p) {
         this.p = p;
     }
+    private BitacoraJL bitacora;
     private RSTableMetro tabla;
     private Producto p;
     private boolean transaccion;

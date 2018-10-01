@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Clases.Conexion;
 import Clases.Lote;
 import Clases.Producto;
 import Clases.sustancias;
@@ -12,15 +13,24 @@ import bitacorajl.BitacoraJL;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
+import static java.awt.image.ImageObserver.SOMEBITS;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.table.TableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
 import rojeru_san.componentes.RSDateChooser;
 import rojerusan.RSNotifyAnimated;
+import rojerusan.RSNotifyFade;
 import rojerusan.RSPanelsSlider;
 
 /**
@@ -1268,6 +1278,9 @@ public class Interfaz extends javax.swing.JFrame {
         if (!nombres.isEmpty()) {
             if (!transaccion) {
                 producto.Start_Transaction();
+                Date fecha = new Date();
+                String fecha_v = (fecha.getYear() + 1900) + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate();
+                bitacora.sbGrabaBitacora("Se inició una transacción", fecha_v, fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
                 producto.vender();
             }
             boolean estado = false;
@@ -1275,6 +1288,21 @@ public class Interfaz extends javax.swing.JFrame {
                 estado = producto.Descontar(cantidades.get(i), nombres.get(i));
                 if (!estado) {
                     producto.Commit_Rollback(false);
+                    Date fecha = new Date();
+                    String fecha_v = (fecha.getYear() + 1900) + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate();
+                    bitacora.sbGrabaBitacora("Se canceló la transacción", fecha_v, fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds());
+                    try 
+                    {
+                        Conexion con = new Conexion();
+                        String path = "src\\bitacora\\transacciones.jasper";
+                        String path2 = "src\\bitacora\\transacciones.pdf";
+                        JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
+                        JasperPrint jp = JasperFillManager.fillReport(jr, null, con.getConnection());
+                        JasperExportManager.exportReportToPdfFile(jp, path2);           
+                    } catch (JRException ex) {
+                        System.out.println(ex.getMessage());
+                        new rojerusan.RSNotifyFade("¡ERROR!", "No se puede imprimir" , Color.white, Color.black, Color.black, SOMEBITS, RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.ERROR).setVisible(true);
+                    }
                     JOptionPane.showMessageDialog(null, "No hay producto disponible");
                     break;
                 }
