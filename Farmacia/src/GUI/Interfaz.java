@@ -9,6 +9,8 @@ import Clases.Conexion;
 import Clases.Lote;
 import Clases.Producto;
 import Clases.sustancias;
+import Clases.SwingBrowser;
+import Clases.abrirpagina;
 import bitacorajl.BitacoraJL;
 import java.awt.Color;
 import java.awt.Image;
@@ -103,6 +105,10 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+        jLabel36 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         rSPanelsSlider1 = new rojerusan.RSPanelsSlider();
         pprincipal = new javax.swing.JPanel();
@@ -227,6 +233,7 @@ public class Interfaz extends javax.swing.JFrame {
         scrollgai1 = new javax.swing.JScrollPane();
         tableInventario = new rojerusan.RSTableMetro();
         jLabel3 = new javax.swing.JLabel();
+        panelreporte = new javax.swing.JPanel();
 
         jMenu1.setText("Opciones");
 
@@ -367,8 +374,8 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 10)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Agregar Lote");
-        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 81, 35));
+        jLabel2.setText("Reporte en linea");
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 90, 35));
 
         jLabel29.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 10)); // NOI18N
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -386,6 +393,41 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jPanel5.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 189, 80, 60));
 
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/icons8_Natural_User_Interface_2_40px_1.png"))); // NOI18N
+        jButton7.setBorder(null);
+        jButton7.setBorderPainted(false);
+        jButton7.setContentAreaFilled(false);
+        jButton7.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/icons8_Natural_User_Interface_2_55px.png"))); // NOI18N
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+        jPanel5.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 90, 60));
+
+        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 10)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Agregar Lote");
+        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 81, 35));
+
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/icons8_Natural_User_Interface_2_white_40px.png"))); // NOI18N
+        jButton8.setBorder(null);
+        jButton8.setBorderPainted(false);
+        jButton8.setContentAreaFilled(false);
+        jButton8.setOpaque(false);
+        jButton8.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/icons8_Natural_User_Interface_2_white_55px.png"))); // NOI18N
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+        jPanel5.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 90, 70));
+
+        jLabel36.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 10)); // NOI18N
+        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel36.setText("Reporte");
+        jPanel5.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 90, 35));
+
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new java.awt.CardLayout());
 
@@ -402,39 +444,35 @@ public class Interfaz extends javax.swing.JFrame {
         pprincipal.setLayout(pprincipalLayout);
         pprincipalLayout.setHorizontalGroup(
             pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1029, Short.MAX_VALUE)
-            .addGroup(pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pprincipalLayout.createSequentialGroup()
-                    .addGap(8, 8, 8)
-                    .addGroup(pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pprincipalLayout.createSequentialGroup()
-                            .addGap(590, 590, 590)
-                            .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGap(102, 102, 102))
-                        .addGroup(pprincipalLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                            .addGap(402, 402, 402))
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGap(9, 9, 9)))
+            .addGroup(pprincipalLayout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addGroup(pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pprincipalLayout.createSequentialGroup()
+                        .addGap(590, 590, 590)
+                        .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(102, 102, 102))
+                    .addGroup(pprincipalLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+                        .addGap(402, 402, 402))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(9, 9, 9))
         );
         pprincipalLayout.setVerticalGroup(
             pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 746, Short.MAX_VALUE)
-            .addGroup(pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pprincipalLayout.createSequentialGroup()
-                    .addGap(8, 8, 8)
-                    .addGroup(pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pprincipalLayout.createSequentialGroup()
-                            .addGap(150, 150, 150)
-                            .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGap(180, 180, 180))
-                        .addGroup(pprincipalLayout.createSequentialGroup()
-                            .addGap(27, 27, 27)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGap(11, 11, 11)))
-                    .addGap(8, 8, 8)))
+            .addGroup(pprincipalLayout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addGroup(pprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pprincipalLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(180, 180, 180))
+                    .addGroup(pprincipalLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(11, 11, 11)))
+                .addGap(8, 8, 8))
         );
 
         rSPanelsSlider1.add(pprincipal, "card4");
@@ -1015,6 +1053,10 @@ public class Interfaz extends javax.swing.JFrame {
 
         rSPanelsSlider1.add(pproductos, "card3");
 
+        panelreporte.setName("panelreporte"); // NOI18N
+        panelreporte.setLayout(new java.awt.CardLayout());
+        rSPanelsSlider1.add(panelreporte, "card5");
+
         jPanel6.add(rSPanelsSlider1, "card2");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -1313,6 +1355,18 @@ public class Interfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+         rSPanelsSlider1.setPanelSlider((int) 1.2, panelreporte, RSPanelsSlider.DIRECT.RIGHT);
+        SwingBrowser browser = new SwingBrowser();
+        browser.loadURL("http://localhost:8088/pentaho/Home");
+        browser.setBounds(1, 1, panelreporte.getWidth() - 1, panelreporte.getHeight() - 1);
+        panelreporte.add(browser);
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        abrirpagina abrir = new abrirpagina("http://localhost:8088/pentaho/Home");
+    }//GEN-LAST:event_jButton8MouseClicked
+
     private boolean verificar_presentacion() {
         if (jTextField7.getText().length() == 0) {
             new rojerusan.RSNotifyAnimated("¡ERROR!", "Campo Nombre aún vacío",
@@ -1450,6 +1504,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1479,7 +1535,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1513,6 +1571,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel pLote;
+    private javax.swing.JPanel panelreporte;
     private javax.swing.JPanel pbuscar;
     private javax.swing.JPanel pbuscart;
     private javax.swing.JPanel pinfoprod;

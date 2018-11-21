@@ -1,2 +1,1 @@
 bitacorajl.BitacoraJL
-bitacoraJL.BitacoraJL
